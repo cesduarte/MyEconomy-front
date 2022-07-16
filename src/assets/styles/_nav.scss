@@ -1,0 +1,22 @@
+
+
+.wrapper.theme_default{
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.nav{
+    background: var(--nav-bg-color) ;
+    color: var(--nav-color);
+
+
+}
+.nav .logo{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 30px;
+ }
+}
+

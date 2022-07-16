@@ -1,0 +1,7 @@
+.wrapper.theme_black{
+    @extend .theme_default;
+    --nav-bg-color: black !important;
+    --nav-color:white;
+    --sidebar-bg-color:white;
+    --sidebar--color: rgb(94, 91, 91);    
+}

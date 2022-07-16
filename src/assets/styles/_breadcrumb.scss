@@ -1,0 +1,30 @@
+.wrapper.theme_default{
+
+    @media screen and (max-width: 799px) {
+        .breadcrumb {
+            left: 5px;
+        }
+        .breadcrumb.active {
+            left: 0px;
+        }
+     }
+
+    .breadcrumb{
+        background: white;
+        border: solid 1px #eee5e5;
+        position: fixed;
+        top: 64px;
+        width: 100%;
+        height: 3rem;
+        padding: 0;
+        z-index:1;
+    }
+    .breadcrumb.active{
+        left: 240px;
+    }
+    .breadcrumb span{
+        font-weight: 300;
+        font-size: 15px;
+        padding-left: 80px;
+    }
+}

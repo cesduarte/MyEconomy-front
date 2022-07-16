@@ -1,0 +1,17 @@
+.wrapper.theme_default{
+    .footer{
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: flex-start;
+        
+    }
+    .footer.active > span{
+        padding-left: 155px;
+    }
+    .footer > span{
+        font-size: 1.1rem;
+        font-weight: 300;
+        font-size: 15px;        
+    }
+}

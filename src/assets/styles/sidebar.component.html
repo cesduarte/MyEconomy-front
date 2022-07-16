@@ -1,0 +1,49 @@
+
+    <mat-sidenav class="sidebar" [ngClass]="{'active': getStatus()}"opened>
+        <div class="profile_content">
+            <div class="profile">
+                <img src="./assets/user.png" alt="" />  
+            </div>
+            <div class="profile_detail">                
+                <div class="name">Carlos Duarte</div>
+                <div class="job">Desenvolvedor fullstack</div>                
+            </div>
+        </div>
+        <hr />
+        <div class="menu_container">
+            <mat-nav-list class="menu">                               
+                <a mat-list-item routerLink="" [matTooltip]=" getStatus()? '':'Dashboard' " matTooltipClass="tooltip"  matTooltipPosition="after">                   
+                    <i class="material-icons" >                        
+                        dashboard
+                    </i>
+                    <span class="links_name" >Dashboard</span>                    
+                </a>
+                <a mat-list-item routerLink="" [matTooltip]=" getStatus()? '':'Classificação' " matTooltipClass="tooltip"  matTooltipPosition="after">
+                    <i class="material-icons">
+                        notes
+                    </i>
+                    <span class="links_name">Classificação</span>
+                </a>
+                <a mat-list-item routerLink="/products" [matTooltip]=" getStatus()? ' ':'Despesas' " matTooltipClass="tooltip"  matTooltipPosition="after">
+                    <i class="material-icons">
+                        monetization_on
+                    </i>
+                    <span class="links_name">Despesas</span>
+                </a>
+                <a mat-list-item routerLink="/products" [matTooltip]=" getStatus()? ' ':'Plano' " matTooltipClass="tooltip"  matTooltipPosition="after">
+                    <i class="material-icons">
+                        money
+                    </i>
+                    <span class="links_name">Plano</span>
+                </a>
+                <a mat-list-item routerLink="/products" [matTooltip]=" getStatus()? ' ':'Plano' " matTooltipClass="tooltip"  matTooltipPosition="after">
+                    <i class="material-icons">
+                        print
+                    </i>
+                    <span class="links_name">Relatórios</span>
+                </a>
+            </mat-nav-list>
+        </div> 
+    </mat-sidenav>
+       
+

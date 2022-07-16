@@ -1,0 +1,126 @@
+
+
+.wrapper.theme_default{
+
+    @media screen and (max-width: 799px) {
+        .sidebar {
+            display:none;
+        }
+        .sidebar.active {
+            display: block;
+            position: fixed;
+        }
+     }
+
+    .sidebar{
+        background-color: var(--sidebar-bg-color) ;
+        width: 78px;
+
+    }
+    .sidebar.active{
+        width: 240px;
+    }
+
+    .sidebar .profile_content{
+        width: auto;
+        color: var(--sidebar-color);
+        height: 100px;
+
+    }
+    .sidebar.active .profile_content{
+        padding-bottom: 3rem;
+        height: 150px;
+    }
+    .sidebar .profile_content .profile{
+        padding-top: 2rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sidebar .profile_content img{
+        height: 55px;
+        width: 55px;
+        object-fit: cover;
+        border-radius: 40px;
+    }
+    .sidebar.active .profile_content img{
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        border-radius: 40px;
+    }
+
+    .sidebar .profile_content .profile_detail{
+        padding-top: 1rem;
+        text-align: center;
+        position: relative;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none
+    }
+    .sidebar.sidebar.active .profile_content .profile_detail{
+        opacity: 1;
+        pointer-events: none;
+    }
+    .sidebar .profile_content .profile_detail .name{
+        font-size: 15px;
+    }
+    .sidebar .profile_content .profile_detail .job{
+        font-size: 11px;
+    }
+    hr{
+        border-top: 0.5px  rgb(161, 51, 51);
+        width: auto;
+    }
+    .sidebar .menu_container{
+        width: auto;
+
+    }
+    .sidebar.active .menu_container{
+        width: auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .sidebar .menu_container a{
+        color: var(--sidebar-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .sidebar .menu_container a i{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .sidebar.active .menu_container a i{
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0%, 0%);
+
+    }
+    .sidebar .menu_container .links_name{
+        padding-left:1rem;
+        opacity: 0;
+        pointer-events: none;
+
+     }
+     .sidebar.active .menu_container .links_name{
+        opacity: 1;
+        pointer-events: none;
+     }
+     .sidebar .menu_container .menu a:hover{
+        background: var(--nav-bg-color);
+        color: var(--nav-color);
+
+     }
+
+
+}
