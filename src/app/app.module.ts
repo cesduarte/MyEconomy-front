@@ -11,8 +11,17 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule} from '@angular/material/list';
 import { MatTooltipModule} from '@angular/material/tooltip';
+import { MatCardModule} from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+
+
+
+
+
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { NavbarComponent } from './template/navbar/navbar.component';
+import { ProfileDetailComponent } from './views/user/profile/profile-detail/profile-detail.component';
+import { ProfileListComponent } from './views/user/profile/profile-list/profile-list.component';
 
 
 
@@ -21,7 +30,9 @@ import { NavbarComponent } from './template/navbar/navbar.component';
   declarations: [
     AppComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileDetailComponent,
+    ProfileListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +43,9 @@ import { NavbarComponent } from './template/navbar/navbar.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
