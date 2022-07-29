@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToogleService } from 'src/app/services/toogle.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toogleService: ToogleService) { }
 
   ngOnInit() {
   }
-  getStatus(): boolean{
-    return true;
+  getvisibleMenu(){
+    return this.toogleService.getvisibleMenu();
   }
 
 }

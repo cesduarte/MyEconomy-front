@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { UserComponent } from './user.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ProfileListComponent } from './profile/profile-list/profile-list.component';
+import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
+import { UserRoutingModule } from './user-routing.module';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule} from '@angular/material/button';
@@ -16,30 +18,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
-
-
-
-
-
-
-
-import { SidebarComponent } from './template/sidebar/sidebar.component';
-import { NavbarComponent } from './template/navbar/navbar.component';
-
-
+import { HeaderCardComponent } from '../header-card/header-card.component';
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SidebarComponent,
-    NavbarComponent,
-  ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    CommonModule,
+    UserRoutingModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -52,7 +38,10 @@ import { NavbarComponent } from './template/navbar/navbar.component';
     MatInputModule,
     MatMenuModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    UserComponent,
+    ProfileDetailComponent,
+    ProfileListComponent,
+  HeaderCardComponent]
 })
-export class AppModule { }
+export class UserModule { }

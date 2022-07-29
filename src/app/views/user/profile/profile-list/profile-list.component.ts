@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -26,7 +27,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ProfileListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

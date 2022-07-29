@@ -5,8 +5,8 @@ import { ProfileListComponent } from './views/user/profile/profile-list/profile-
 const routes: Routes = [
 
 {
-  path: 'profile',
-  component: ProfileListComponent,
+  path: 'users',
+  loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
 }
 
 ];

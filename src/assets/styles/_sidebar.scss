@@ -8,7 +8,7 @@
         }
         .sidebar.active {
             display: block;
-            position: fixed;
+
         }
      }
 
@@ -28,7 +28,7 @@
 
     }
     .sidebar.active .profile_content{
-        padding-bottom: 3rem;
+       margin-bottom: 3rem;
         height: 150px;
     }
     .sidebar .profile_content .profile{
