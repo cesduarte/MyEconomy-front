@@ -1,0 +1,9 @@
+.card-detalhe{
+  padding: 20px;
+  height: 100%;
+}
+.card_footer_botao_salvar button{
+  background: #357075;
+  color: white;
+  width: 100%;
+}

@@ -10,6 +10,7 @@ export class HeaderCardComponent {
 
   @Input() titulo!: string;
   @Input() detalhetela!: string;
+  @Input() isDetalhe!: boolean
 
   constructor(private router: Router) { }
 

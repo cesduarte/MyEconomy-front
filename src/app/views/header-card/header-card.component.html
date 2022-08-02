@@ -2,11 +2,14 @@
   <nav class="navbar">
     {{titulo}}
     <form class="form-inline">
-      <button mat-button>
+      <button mat-button *ngIf="!isDetalhe">
         <mat-icon>search</mat-icon>
       </button>
-      <button mat-button (click)="detalhe()">
+      <button mat-button (click)="detalhe()" *ngIf="!isDetalhe">
         <mat-icon>add</mat-icon>
+      </button>
+      <button mat-button *ngIf="isDetalhe">
+        <mat-icon>close</mat-icon>
       </button>
     </form>
   </nav>
