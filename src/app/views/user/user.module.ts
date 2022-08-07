@@ -21,6 +21,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HeaderCardComponent } from '../header-card/header-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProfileSearchComponent } from './profile/profile-search/profile-search.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 
 
 
@@ -40,7 +44,9 @@ import { ProfileSearchComponent } from './profile/profile-search/profile-search.
     MatPaginatorModule,
     MatInputModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   declarations: [
     UserComponent,

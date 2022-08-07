@@ -1,8 +1,13 @@
-.example-full-width {
+.form{
   width: 100%;
 }
-.example-form {
-  min-width: 300px;
-  max-width: 500px;
+.field{
   width: 100%;
+}
+table {
+  width: 100%;
+  box-shadow: none
+}
+.example-margin {
+  margin: 0 25px;
 }
