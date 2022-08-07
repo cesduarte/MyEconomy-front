@@ -1,9 +1,8 @@
-.card-detalhe{
-  padding: 20px;
-  height: 100%;
+.example-full-width {
+  width: 100%;
 }
-.card_footer_botao_salvar button{
-  background: #357075;
-  color: white;
+.example-form {
+  min-width: 300px;
+  max-width: 500px;
   width: 100%;
 }

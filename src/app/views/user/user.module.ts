@@ -19,6 +19,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderCardComponent } from '../header-card/header-card.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ProfileSearchComponent } from './profile/profile-search/profile-search.component';
+
 
 
 
@@ -36,12 +39,14 @@ import { HeaderCardComponent } from '../header-card/header-card.component';
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   declarations: [
     UserComponent,
     ProfileDetailComponent,
     ProfileListComponent,
-  HeaderCardComponent]
+  HeaderCardComponent,
+  ProfileSearchComponent]
 })
 export class UserModule { }

@@ -9,14 +9,17 @@ import { Router } from '@angular/router';
 export class HeaderCardComponent {
 
   @Input() titulo!: string;
-  @Input() detalhetela!: string;
-  @Input() isDetalhe!: boolean
+  
+  @Output() openDialogEmiter = new EventEmitter();
+  @Output() openDialogSearchEmiter = new EventEmitter();
 
-  constructor(private router: Router) { }
+  constructor() { }  
 
-  detalhe(){
-    this.router.navigateByUrl(this.detalhetela);
+  openDialog() {
+    this.openDialogEmiter.emit();
   }
-
+  openDialogSearch(){
+    this.openDialogSearchEmiter.emit();
+  }
 
 }

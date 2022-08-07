@@ -1,24 +1,10 @@
-.card-header-style{
-  background: #926dde;
-  color: white;
+
+.card-1{
+  border-radius: 15px;
+  margin: 30px;
+  height: 100%;  
 }
 table {
   width: 100%;
-  box-shadow: none;
-}
-.example-form {
-
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
-}
-
-td {
-  padding-right: 8px;
-}
-
-.card{
-  height: 100%;
+  box-shadow: none
 }

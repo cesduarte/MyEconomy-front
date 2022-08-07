@@ -32,5 +32,6 @@ export class ProfileDetailComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }

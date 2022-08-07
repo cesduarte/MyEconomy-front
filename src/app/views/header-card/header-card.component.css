@@ -1,0 +1,11 @@
+.header{    
+    background: none;
+    padding-top: 20px;    
+}
+.titulo{
+    font-size: 15px;
+}
+.button{
+    margin: 5px;  
+    box-shadow:none  
+}
