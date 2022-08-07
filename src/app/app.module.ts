@@ -25,6 +25,8 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { NavbarComponent } from './template/navbar/navbar.component';
+import { ModalDeleteComponent } from './helpers/modal-delete/modal-delete.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -35,6 +37,7 @@ import { NavbarComponent } from './template/navbar/navbar.component';
     AppComponent,
     SidebarComponent,
     NavbarComponent,
+    ModalDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { NavbarComponent } from './template/navbar/navbar.component';
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
