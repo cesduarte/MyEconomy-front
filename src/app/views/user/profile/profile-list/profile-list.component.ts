@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { IBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb-item';
 import { ModalDeleteComponent } from 'src/app/helpers/modal-delete/modal-delete.component';
 import { ProfileDetailComponent } from '../profile-detail/profile-detail.component';
 import { ProfileSearchComponent } from '../profile-search/profile-search.component';
@@ -15,6 +16,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {name: 'Suporte', weight: 4.0026, symbol: 'He'},
   {name: 'DEV', weight: 6.941, symbol: 'Li'}, 
 ];
+type NewType = IBreadcrumbItem[];
+
 @Component({
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
@@ -23,10 +26,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ProfileListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'editar', 'excluir'];
   dataSource = ELEMENT_DATA;
+  pageTitle: NewType = [];
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.pageTitle = [			
+			{ label: 'Home', path: '/home', active: true },
+      { label: 'Perfil', path: '/perfil', active: true }
+		];
   }
 
   openDialog() {

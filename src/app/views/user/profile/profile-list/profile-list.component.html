@@ -1,5 +1,5 @@
-<div>
-  <app-header-card titulo = "Home / Lista de perfis" (openDialogEmiter)="openDialog()" (openDialogSearchEmiter)="openDialogSearch()"></app-header-card>  
+<div>    
+  <app-page-title [breadcrumbItems]="pageTitle" (openDialogEmiter)="openDialog()" (openDialogSearchEmiter)="openDialogSearch()"></app-page-title>
   <mat-card class="card-1">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
     <ng-container matColumnDef="name">

@@ -1,17 +1,18 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { IBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb-item';
 
 @Component({
-  selector: 'app-header-card',
-  templateUrl: './header-card.component.html',
-  styleUrls: ['./header-card.component.css']
+  selector: 'app-page-title',
+  templateUrl: './page-title.component.html',
+  styleUrls: ['./page-title.component.scss']
 })
-export class HeaderCardComponent {
+export class PageTitleComponent{
 
   @Input() titulo!: string;
   
   @Output() openDialogEmiter = new EventEmitter();
   @Output() openDialogSearchEmiter = new EventEmitter();
+  @Input() breadcrumbItems: IBreadcrumbItem[] = [];
 
   constructor() { }  
 

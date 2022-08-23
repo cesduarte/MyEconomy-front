@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule} from '@angular/material/sidenav';
@@ -16,28 +14,26 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
-
-import { SidebarComponent } from './template/sidebar/sidebar.component';
-import { NavbarComponent } from './template/navbar/navbar.component';
-import { ModalDeleteComponent } from './helpers/modal-delete/modal-delete.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { SharedModule } from './modules/shared/shared.module';
-
-
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { PageTitleComponent } from './components/page-title/page-title.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SidebarComponent,
-    NavbarComponent,
-    ModalDeleteComponent,   
+    PageTitleComponent,
+    
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    CommonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatTooltipModule,
+    MatListModule,
+    ],
+  exports:[
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -50,9 +46,9 @@ import { SharedModule } from './modules/shared/shared.module';
     MatInputModule,
     MatMenuModule,
     MatDialogModule,
-    SharedModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    MatCheckboxModule,
+    MatSnackBarModule,
+    PageTitleComponent,   
+  ]
 })
-export class AppModule { }
+export class SharedModule { }

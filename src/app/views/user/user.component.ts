@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
+  public theme = 'wrapper theme_default'
+  
   constructor() { }
 
   ngOnInit() {

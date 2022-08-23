@@ -15,77 +15,18 @@
     </div>
     <hr />
     <div class="menu_container">
-      <mat-nav-list class="menu">
-        <a
+      <mat-nav-list class="menu" >
+        <a  *ngFor="let menu of menuItems; let i = index"
           mat-list-item
-          routerLink=""
-          [matTooltip]="getvisibleMenu() ? '' : 'Dashboard'"
+          routerLink= {{menu.link}}
+          [matTooltip]="getvisibleMenu() ? '' : menu.label"
           matTooltipClass="tooltip"
           matTooltipPosition="after"
         >
-          <i class="material-icons"> dashboard </i>
-          <span class="links_name">Dashboard</span>
+          <i class="material-icons"> {{menu.icon}} </i>
+          <span class="links_name">{{menu.label}}</span>
         </a>
-        <a
-          mat-list-item
-          routerLink=""
-          [matTooltip]="getvisibleMenu() ? '' : 'Classificação'"
-          matTooltipClass="tooltip"
-          matTooltipPosition="after"
-        >
-          <i class="material-icons"> notes </i>
-          <span class="links_name">Classificação</span>
-        </a>
-        <a
-          mat-list-item
-          routerLink="/products"
-          [matTooltip]="getvisibleMenu() ? ' ' : 'Despesas'"
-          matTooltipClass="tooltip"
-          matTooltipPosition="after"
-        >
-          <i class="material-icons"> monetization_on </i>
-          <span class="links_name">Despesas</span>
-        </a>
-        <a
-          mat-list-item
-          routerLink="/products"
-          [matTooltip]="getvisibleMenu() ? ' ' : 'Plano'"
-          matTooltipClass="tooltip"
-          matTooltipPosition="after"
-        >
-          <i class="material-icons"> money </i>
-          <span class="links_name">Plano</span>
-        </a>
-        <a
-          mat-list-item
-          routerLink="/products"
-          [matTooltip]="getvisibleMenu() ? ' ' : 'Plano'"
-          matTooltipClass="tooltip"
-          matTooltipPosition="after"
-        >
-          <i class="material-icons"> print </i>
-          <span class="links_name">Relatórios</span>
-        </a>
-        <a
-          mat-list-item
-          routerLink="/products"
-          [matTooltip]="getvisibleMenu() ? ' ' : 'Usuários'"
-          matTooltipClass="tooltip"
-          matTooltipPosition="after"
-        >
-          <i class="material-icons"> people </i>
-          <span class="links_name">Usuários</span>
-        </a>
-        <a
-          mat-list-item
-          routerLink="/users/profile"
-          [matTooltip]="getvisibleMenu() ? ' ' : 'Perfil'"
-          matTooltipClass="tooltip"
-          matTooltipPosition="after"
-        >
-          <i class="material-icons"> list </i>
-          <span class="links_name">Perfil</span>
-        </a>
+        
       </mat-nav-list>
     </div>
   </mat-sidenav>
