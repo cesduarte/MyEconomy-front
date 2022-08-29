@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileSearchComponent } from './profile-search.component';
+import { PageFilterAddComponent } from './page-filter-add.component';
 
-describe('ProfileSearchComponent', () => {
-  let component: ProfileSearchComponent;
-  let fixture: ComponentFixture<ProfileSearchComponent>;
+describe('PageFilterAddComponent', () => {
+  let component: PageFilterAddComponent;
+  let fixture: ComponentFixture<PageFilterAddComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileSearchComponent ]
+      declarations: [ PageFilterAddComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProfileSearchComponent);
+    fixture = TestBed.createComponent(PageFilterAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

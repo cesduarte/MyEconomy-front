@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { IBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb-item';
 import { ModalDeleteComponent } from 'src/app/helpers/modal-delete/modal-delete.component';
 import { ProfileDetailComponent } from '../profile-detail/profile-detail.component';
-import { ProfileSearchComponent } from '../profile-search/profile-search.component';
+
 
 export interface PeriodicElement {
   name: string; 
@@ -47,14 +46,6 @@ export class ProfileListComponent implements OnInit {
   
   openDialogDelete() {
     const dialogRef = this.dialog.open(ModalDeleteComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  openDialogSearch(){
-    const dialogRef = this.dialog.open(ProfileSearchComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

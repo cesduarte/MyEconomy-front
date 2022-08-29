@@ -1,12 +1,11 @@
-<mat-toolbar class="header"> 
-    <div *ngFor="let item of breadcrumbItems">
-      <a href="javascript:void(0);" routerLink="[item.path]">{{ item.label }} /</a>
-    </div>    
-    <span class="example-spacer"></span>  
-    <button mat-mini-fab mat-flat-button color="primary" class="button" (click)="openDialogSearch()">
-      <mat-icon>search</mat-icon>
-    </button>
-    <button mat-mini-fab mat-flat-button color="primary" class="button" (click)="openDialog()">
-      <mat-icon>add</mat-icon>
-    </button>  
-  </mat-toolbar>
+<mat-toolbar class="title">
+  <div class="t_title">
+    {{ titulo }}
+  </div>
+  <span class="example-spacer"></span>
+  <div>
+    <ul class="t_breadcrumb">
+      <li *ngFor="let item of breadcrumbItems"><a href="javascript:void(0);" routerLink="[item.path]" >{{ item.label }}</a></li>
+    </ul>
+  </div>
+</mat-toolbar>

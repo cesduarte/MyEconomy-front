@@ -4,7 +4,6 @@ import { UserComponent } from './user.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
 import { UserRoutingModule } from './user-routing.module';
-import { ProfileSearchComponent } from './profile/profile-search/profile-search.component';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 
 
@@ -17,8 +16,7 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
   declarations: [
     UserComponent,
     ProfileDetailComponent,
-    ProfileListComponent,   
-    ProfileSearchComponent,
+    ProfileListComponent,       
     ]
 })
 export class UserModule { }

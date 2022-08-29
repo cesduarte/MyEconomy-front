@@ -1,13 +1,34 @@
-.header{    
+.title {
     background: none;
-    padding-top: 20px;    
-}
-.header a{
-    font-size: 15px;
-    margin-left: 5px;
-}
-.button{
-    margin: 5px;  
-    box-shadow:none  
-}
+    .t_title {
+        
+    }
 
+    .t_breadcrumb {
+
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            display: inline;
+            font-size: 18px;
+
+            +li:before {
+                padding: 8px;
+                color: black;
+                content: "/\00a0";
+            }
+
+            a {
+                color: #0275d8;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #01447e;
+                text-decoration: underline;
+            }
+        }
+    }
+}
