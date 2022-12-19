@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb-item';
 import { ModalDeleteComponent } from 'src/app/helpers/modal-delete/modal-delete.component';
+import { Classification } from 'src/app/models/classification';
 import { ClassificationDetailComponent } from '../classification-detail/classification-detail.component';
 
 export interface PeriodicElement {
@@ -23,7 +24,7 @@ type NewType = IBreadcrumbItem[];
 })
 export class ClassificationListComponent implements OnInit {
 
-  @Input() classifications:any[] = [];
+  @Input() classifications:Classification[] = [];
 
   displayedColumns: string[] = ['description','editar', 'excluir'];
   dataSource = ELEMENT_DATA;
