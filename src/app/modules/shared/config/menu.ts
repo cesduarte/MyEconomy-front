@@ -48,6 +48,6 @@ export const MENU_ITEMS: IMenuItem[] =[
 		label: "Perfil",
 		isTitle: false,
 		icon: "list",
-		link: "/users/profile/",
+		link: "/user/profile/",
 	},
 ]

@@ -17,13 +17,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { PageFilterAddComponent } from './components/page-filter-add/page-filter-add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     PageTitleComponent,
     PageFilterAddComponent,
-    
+
   ],
   imports: [
     CommonModule,
@@ -35,6 +36,8 @@ import { PageFilterAddComponent } from './components/page-filter-add/page-filter
     MatTooltipModule,
     MatListModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
     ],
   exports:[
     MatToolbarModule,
@@ -51,8 +54,10 @@ import { PageFilterAddComponent } from './components/page-filter-add/page-filter
     MatDialogModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    PageTitleComponent,  
-    PageFilterAddComponent 
+    PageTitleComponent,
+    PageFilterAddComponent,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

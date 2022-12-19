@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-classification-detail',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassificationDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() classification: any;
 
-  ngOnInit(): void {
+  form!: FormGroup;
+
+  constructor(private readonly formBuilder: FormBuilder) { }
+
+  async ngOnInit(): Promise<void> {
+    this.iniciaForm();
   }
+
+  async iniciaForm() {
+		this.form = this.formBuilder.group({
+			description: [this.classification?.description, [Validators.required]],
+		});
+	}
 
 }

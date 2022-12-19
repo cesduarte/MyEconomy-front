@@ -1,22 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { IBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb-item';
-import { ModalDeleteComponent } from 'src/app/helpers/modal-delete/modal-delete.component';
-import { ClassificationDetailComponent } from './classification-detail/classification-detail.component';
-
-export interface PeriodicElement {
-  name: string;
-  weight: number;
-  symbol: string;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Admin', weight: 1.0079, symbol: 'H'},
-  {name: 'Suporte', weight: 4.0026, symbol: 'He'},
-  {name: 'DEV', weight: 6.941, symbol: 'Li'},
-];
-
-type NewType = IBreadcrumbItem[];
-
+import { ClassificationService } from 'src/app/services/classification.service';
 @Component({
   selector: 'app-classification',
   templateUrl: './classification.component.html',
@@ -24,33 +7,19 @@ type NewType = IBreadcrumbItem[];
 })
 
 export class ClassificationComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'editar', 'excluir'];
-  dataSource = ELEMENT_DATA;
-  pageTitle: NewType = [];
 
-  constructor(public dialog: MatDialog) { }
 
-  ngOnInit() {
-    this.pageTitle = [
-			{ label: 'Home', path: '/home', active: true },
-      { label: 'Perfil', path: '/perfil', active: true }
-		];
+  classifications!: any[] ;
+
+  constructor(private readonly classificationService: ClassificationService) { }
+
+  async ngOnInit(): Promise<void> {
+		await this.loadClassifications();
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ClassificationDetailComponent);
+  async loadClassifications(): Promise<void> {
+		this.classifications = await this.classificationService.get();
+	}
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  openDialogDelete() {
-    const dialogRef = this.dialog.open(ModalDeleteComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 
 }

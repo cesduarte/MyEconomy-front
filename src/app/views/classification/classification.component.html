@@ -1,16 +1,1 @@
-<div>
-  <div>
-    <app-page-title
-      [breadcrumbItems]="pageTitle"
-      [titulo]="'Perfis'"
-    ></app-page-title>
-    <app-page-filter-add
-      [displayFilter]="false"
-      (openDialogEmiter)="openDialog()"
-    >
-    </app-page-filter-add>
-  </div>
-  <div class="card m_card">
-    <app-classification-list></app-classification-list>
-  </div>
-</div>
+<app-classification-list [classifications] = classifications></app-classification-list>

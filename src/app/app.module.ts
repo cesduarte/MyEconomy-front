@@ -22,6 +22,7 @@ import { NavbarComponent } from './template/navbar/navbar.component';
 import { ModalDeleteComponent } from './helpers/modal-delete/modal-delete.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from './modules/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SharedModule } from './modules/shared/shared.module';
     MatInputModule,
     MatMenuModule,
     MatDialogModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

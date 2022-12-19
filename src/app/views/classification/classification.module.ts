@@ -21,6 +21,6 @@ import { ClassificationRoutingModule } from './classification-routing.module';
   ],
   exports:[
     ClassificationListComponent,
-  ]
+  ],
 })
 export class ClassificationModule { }

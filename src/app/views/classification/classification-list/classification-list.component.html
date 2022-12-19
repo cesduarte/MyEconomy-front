@@ -1,27 +1,43 @@
-<div class="card-body">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Descrição </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="editar">
-      <th mat-header-cell *matHeaderCellDef> Editar </th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="primary" (click)="openDialog()">
-          <mat-icon class="mat-18">edit</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="excluir">
-      <th mat-header-cell *matHeaderCellDef> Deletar </th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="warn" (click)="openDialogDelete()">
-          <mat-icon class="mat-18">delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+<div>
+  <div>
+    <app-page-title
+      [breadcrumbItems]="pageTitle"
+      [titulo]="'Lista de classificações'"
+    ></app-page-title>
+    <app-page-filter-add
+      [displayFilter]="false"
+      (openDialogEmiter)="openDialog(null)"
+    >
+    </app-page-filter-add>
+  </div>
+  <div class="card m_card">
+    <div class="card-body">
+      <table mat-table [dataSource]="classifications" class="mat-elevation-z8">
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="editar">
+          <th mat-header-cell *matHeaderCellDef> Editar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element)">
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="excluir">
+          <th mat-header-cell *matHeaderCellDef> Deletar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="openDialogDelete()">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
 </div>
