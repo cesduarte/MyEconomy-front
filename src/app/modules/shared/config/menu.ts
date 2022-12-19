@@ -1,6 +1,6 @@
 import { IMenuItem } from "src/app/core/interfaces/menu-item";
 
-export const MENU_ITEMS: IMenuItem[] =[    
+export const MENU_ITEMS: IMenuItem[] =[
 	{
 		key: "home",
 		label: "Home",
@@ -13,7 +13,7 @@ export const MENU_ITEMS: IMenuItem[] =[
 		label: "Classificação",
 		isTitle: false,
 		icon: "notes",
-		link: "",
+		link: "/classification",
 	},
     {
 		key: "despesas",
@@ -48,6 +48,6 @@ export const MENU_ITEMS: IMenuItem[] =[
 		label: "Perfil",
 		isTitle: false,
 		icon: "list",
-		link: "/users/profile",
+		link: "/users/profile/",
 	},
 ]

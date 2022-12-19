@@ -11,12 +11,12 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule,    
+    SharedModule,
   ],
   declarations: [
     UserComponent,
     ProfileDetailComponent,
-    ProfileListComponent,       
+    ProfileListComponent,
     ]
 })
 export class UserModule { }

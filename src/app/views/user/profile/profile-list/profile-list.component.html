@@ -1,14 +1,10 @@
 <div>
   <div>
     <app-page-title [breadcrumbItems]="pageTitle" [titulo]="'Perfis'"></app-page-title>
+    <app-page-filter-add [displayFilter]="false" (openDialogEmiter)="openDialog()">
+    </app-page-filter-add>
   </div>
-  <div class="card m_card">    
-    <div class="card-body">
-      <app-page-filter-add [displayFilter]="false" (openDialogEmiter)="openDialog()">
-      </app-page-filter-add>
-    </div>
-  </div>
-  <div class="card m_card">    
+  <div class="card m_card">
     <div class="card-body">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
@@ -31,10 +27,10 @@
             </button>
           </td>
         </ng-container>
-  
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>       
+      </table>
     </div>
   </div>
 </div>

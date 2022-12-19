@@ -24,15 +24,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from './modules/shared/shared.module';
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    ModalDeleteComponent,   
+    ModalDeleteComponent,
   ],
   imports: [
     BrowserModule,

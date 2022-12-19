@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileListComponent } from './views/user/profile/profile-list/profile-list.component';
 
 const routes: Routes = [
 
 {
-  path: 'users',
+  path: 'user',
   loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
+},{
+  path: 'classification',
+  loadChildren: () => import('./views/classification/classification.module').then(m => m.ClassificationModule)
 }
 
 ];
