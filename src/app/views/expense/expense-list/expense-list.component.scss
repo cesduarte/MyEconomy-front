@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  box-shadow: none
+}
+.mat-column-editar {
+  flex: none;
+  width: 10%;
+}
+.mat-column-excluir{
+  flex: none;
+  width: 10%;
+}
+.mat-column-name{
+  flex: none;
+  width: 75%;
+}
+
+.m_card{
+  border-bottom-left-radius:  5px;
+  border-bottom-right-radius:  5px;
+}

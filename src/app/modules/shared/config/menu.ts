@@ -20,7 +20,7 @@ export const MENU_ITEMS: IMenuItem[] =[
 		label: "Despesas",
 		isTitle: false,
 		icon: "monetization_on",
-		link: "",
+		link: "expense",
 	},
     {
 		key: "plano",

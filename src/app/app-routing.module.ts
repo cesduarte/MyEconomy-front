@@ -10,6 +10,10 @@ const routes: Routes = [
   path: 'classification',
   loadChildren: () => import('./views/classification/classification.module').then(m => m.ClassificationModule)
 }
+,{
+  path: 'expense',
+  loadChildren: () => import('./views/expense/expense.module').then(m => m.ExpenseModule)
+}
 
 ];
 

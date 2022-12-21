@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     NavbarComponent,
     ModalDeleteComponent,
+
   ],
   imports: [
     BrowserModule,

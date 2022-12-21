@@ -4,7 +4,7 @@
             <form class="m_campo_filter">
                 <mat-form-field appearance="standard" class="m_campo_filter-full-width" color="primary">
                     <mat-label>Buscar</mat-label>
-                    <input matInput>
+                    <input matInput (change) ="applyFilter($event)">
                 </mat-form-field>
             </form>
             <span class="example-spacer"></span>
