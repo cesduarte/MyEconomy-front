@@ -9,25 +9,11 @@ import { ClassificationService } from 'src/app/services/classification.service';
 
 export class ClassificationComponent implements OnInit {
 
+  constructor() { }
 
-  classifications!: Classification[] ;
+  ngOnInit() {
 
-  constructor(private readonly classificationService: ClassificationService) { }
-
-  async ngOnInit(): Promise<void> {
-		await this.loadClassifications();
-
-    this.classificationService.updateClassification.subscribe(async (classification) => {
-			if (typeof classification === 'object') {
-				const busca = this.classifications.find((s: any) => s.id === classification.id);
-				if (busca) Object.assign(busca, classification);
-			} else await this.loadClassifications();
-		});
   }
-
-  async loadClassifications(): Promise<void> {
-		this.classifications = await this.classificationService.get();
-	}
 
 
 }

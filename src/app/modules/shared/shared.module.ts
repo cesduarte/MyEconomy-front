@@ -18,12 +18,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { PageFilterAddComponent } from './components/page-filter-add/page-filter-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 @NgModule({
   declarations: [
     PageTitleComponent,
     PageFilterAddComponent,
+    SpinnerComponent,
 
   ],
   imports: [
@@ -57,7 +59,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PageTitleComponent,
     PageFilterAddComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SpinnerComponent,
   ]
 })
 export class SharedModule { }
