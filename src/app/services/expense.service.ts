@@ -11,7 +11,7 @@ export class ExpenseService {
 
   public updateExpense: EventEmitter<any> = new EventEmitter();
 
-  baseURL = environment.apiURL + '/fixedexpense';
+  baseURL = environment.apiURL + '/api/expense';
 
   constructor(private readonly http: HttpClient) { }
 
@@ -21,7 +21,6 @@ export class ExpenseService {
   save(data: Expense,id?: number): Promise<any> {
 
     if (id){
-      data.id = id
       return firstValueFrom(this.http.put(this.baseURL.concat('/'), data));
     }
     return firstValueFrom(this.http.post(this.baseURL.concat('/'), data));

@@ -14,11 +14,16 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { PageFilterAddComponent } from './components/page-filter-add/page-filter-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DatetimeFormatPipe } from 'src/app/pipes/datetime-format.pipe';
+
+
 
 
 @NgModule({
@@ -26,6 +31,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     PageTitleComponent,
     PageFilterAddComponent,
     SpinnerComponent,
+    DatetimeFormatPipe
 
   ],
   imports: [
@@ -39,7 +45,12 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     MatListModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+
+
     ],
   exports:[
     MatToolbarModule,
@@ -61,6 +72,10 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     FormsModule,
     ReactiveFormsModule,
     SpinnerComponent,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    DatetimeFormatPipe
+
   ]
 })
 export class SharedModule { }

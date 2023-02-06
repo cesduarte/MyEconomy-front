@@ -5,6 +5,7 @@ import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ExpenseRoutingModule } from './expense-routing.module';
+import { DatetimeFormatPipe } from 'src/app/pipes/datetime-format.pipe';
 
 
 

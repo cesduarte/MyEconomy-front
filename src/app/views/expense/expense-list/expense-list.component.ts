@@ -43,7 +43,6 @@ export class ExpenseListComponent implements OnInit {
 
     try {
       this.dataSource.data = await this.expenseService.get();
-      console.log(await this.expenseService.get())
     } catch (error) {
       console.log(error)
     }

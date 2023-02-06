@@ -27,6 +27,7 @@ export class ClassificationDetailComponent implements OnInit {
   async iniciaForm() {
 		this.form = this.formBuilder.group({
 			description: [this.classification?.description, [Validators.required]],
+
 		});
 	}
   async save(){
