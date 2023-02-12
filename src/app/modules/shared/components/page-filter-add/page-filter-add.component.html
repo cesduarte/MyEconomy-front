@@ -1,22 +1,8 @@
-<div class="card m_card">
-    <div class="card-body">
-        <mat-toolbar class="m_filter">
-            <form class="m_campo_filter">
-                <mat-form-field appearance="standard" class="m_campo_filter-full-width" color="primary">
-                    <mat-label>Buscar</mat-label>
-                    <input matInput (change) ="applyFilter($event)">
-                </mat-form-field>
-            </form>
-            <span class="example-spacer"></span>
-            <div class="m_buttoes">
-                <button mat-icon-button color="primary" class="button" (click)="openDialogSearch()"
-                    *ngIf="displayFilter">
-                    <mat-icon>search</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" class="button" (click)="openDialog()">
-                    <mat-icon>add</mat-icon>
-                </button>
-            </div>
-        </mat-toolbar>
-    </div>
+<div class="example-button-row">
+  <button
+    mat-icon-button
+    (click)="openDialogSearch()">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-raised-button color="primary">Novo</button>
 </div>

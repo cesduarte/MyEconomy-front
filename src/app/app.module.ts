@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     ModalDeleteComponent,
 
+
   ],
   imports: [
     BrowserModule,

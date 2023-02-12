@@ -26,11 +26,13 @@
           <i class="material-icons"> {{menu.icon}} </i>
           <span class="links_name">{{menu.label}}</span>
         </a>
-        
+
       </mat-nav-list>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <app-navbar></app-navbar>
+    <div class="tee"><router-outlet></router-outlet></div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>

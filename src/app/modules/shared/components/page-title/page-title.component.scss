@@ -1,7 +1,10 @@
 .title {
     background: none;
+    background-color: #926dde;
+    color: white;
+    padding: 30px;
     .t_title {
-        
+
     }
 
     .t_breadcrumb {
@@ -9,6 +12,7 @@
         padding: 0;
         margin: 0;
         list-style: none;
+        background-color: #01447e;
 
         li {
             display: inline;
@@ -16,7 +20,7 @@
 
             +li:before {
                 padding: 8px;
-                color: black;
+                color: white;
                 content: "/\00a0";
             }
 
@@ -31,4 +35,19 @@
             }
         }
     }
+}
+.card-header{
+  border-radius: 3px;
+  margin-top: -50px;
+  padding: 15px
+}
+.card-header-danger{
+  background-color: #926dde;
+  color: white;
+}
+.p1{
+  font-size: 20px;
+}
+.p2{
+  font-size: 10px;
 }

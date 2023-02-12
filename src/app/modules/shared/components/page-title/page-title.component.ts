@@ -8,12 +8,13 @@ import { IBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb-item';
 })
 export class PageTitleComponent{
 
-  @Input() titulo!: string; 
-  
+  @Input() titulo!: string;
+  @Input() subtitulo!: string;
+
   @Input() breadcrumbItems: IBreadcrumbItem[] = [];
 
   constructor() { }
 
-  
+
 
 }

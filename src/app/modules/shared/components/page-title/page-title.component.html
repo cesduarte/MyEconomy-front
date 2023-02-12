@@ -1,11 +1,11 @@
-<mat-toolbar class="title">
-  <div class="t_title">
-    {{ titulo }}
-  </div>
-  <span class="example-spacer"></span>
-  <div>
-    <ul class="t_breadcrumb">
-      <li *ngFor="let item of breadcrumbItems"><a href="javascript:void(0);" routerLink="[item.path]" >{{ item.label }}</a></li>
-    </ul>
-  </div>
+
+<mat-toolbar  class="card-header card-header-danger shadow-sm p-3 mb-5 rounded">
+  <mat-toolbar-row>
+    <span>
+      <h1 class="p1">{{titulo}}</h1>
+      <h1 class="p2">{{subtitulo}}</h1>
+    </span>
+    <span class="example-spacer"></span>
+    <app-page-filter-add></app-page-filter-add>
+  </mat-toolbar-row>
 </mat-toolbar>

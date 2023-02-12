@@ -1,27 +1,34 @@
 .m_filter {
     width: 100%;
     background: none;
-    padding: 10px;    
+    padding: 10px;
 
     .m_campo_filter {
         width: 100%;
         font-size: 13px;
         margin-top: 6px;
-        
+
         .m_campo_filter-full-width {
-            width: 100%;            
+            width: 100%;
         }
     }
 }
 
-.m_buttoes {   
-    
-   
+.m_buttoes {
+
+
     .button {
-       
-        box-shadow: none;
-        margin: 5px;
-               
+
+
+
 
     }
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.example-disabled {
+  display: inline-block;
 }

@@ -97,7 +97,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);      
+      transform: translate(-50%, -50%);
+
     }
     .sidebar.active .menu_container a i{
       position: relative;
@@ -119,7 +120,6 @@
      .sidebar .menu_container .menu a:hover{
         background: var(--nav-bg-color);
         color: var(--nav-color);
-        border-radius: 10px;
 
      }
 
