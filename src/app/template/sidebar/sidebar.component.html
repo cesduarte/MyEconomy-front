@@ -1,9 +1,11 @@
-<mat-sidenav-container autosize>
+<mat-sidenav-container [hasBackdrop]="'true'" (backdropClick)="close()" autosize>
   <mat-sidenav
-    opened="true"
-    mode="side"
+    (keydown.escape)="close()"
+    [opened]="getvisibleMenu()"
+    mode="over"
     class="sidebar"
-    [ngClass]="{ active: getvisibleMenu() }" >
+    [ngClass]="{ active: true }"
+    >
     <div class="profile_content">
       <div class="profile">
         <img src="./assets/user.png" alt="" />
@@ -22,6 +24,8 @@
           [matTooltip]="getvisibleMenu() ? '' : menu.label"
           matTooltipClass="tooltip"
           matTooltipPosition="after"
+          (click)="close()"
+
         >
           <i class="material-icons"> {{menu.icon}} </i>
           <span class="links_name">{{menu.label}}</span>
@@ -32,7 +36,9 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-navbar></app-navbar>
-    <div class="tee"><router-outlet></router-outlet></div>
+    <div class="tee">
+      <router-outlet></router-outlet>
+    </div>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

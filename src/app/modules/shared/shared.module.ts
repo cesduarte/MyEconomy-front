@@ -19,10 +19,15 @@ import { PageTitleComponent } from './components/page-title/page-title.component
 import { PageFilterAddComponent } from './components/page-filter-add/page-filter-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { DatetimeFormatPipe } from 'src/app/pipes/datetime-format.pipe';
 
+import { DatetimeFormatPipe } from 'src/app/pipes/datetime-format.pipe';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {ToolbarModule} from 'primeng/toolbar';
+import {PanelModule} from 'primeng/panel';
+import {CardModule} from 'primeng/card';
+import {InputTextModule} from 'primeng/inputtext';
+import {DialogModule} from 'primeng/dialog';
 
 
 
@@ -46,8 +51,14 @@ import { DatetimeFormatPipe } from 'src/app/pipes/datetime-format.pipe';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
+    TableModule,
+    ButtonModule,
+    ToolbarModule,
+    PanelModule,
+    CardModule,
+    InputTextModule,
+    DialogModule
+
 
 
 
@@ -72,9 +83,17 @@ import { DatetimeFormatPipe } from 'src/app/pipes/datetime-format.pipe';
     FormsModule,
     ReactiveFormsModule,
     SpinnerComponent,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    DatetimeFormatPipe
+
+    DatetimeFormatPipe,
+    TableModule,
+    ButtonModule,
+    ToolbarModule,
+    PanelModule,
+    CardModule,
+    InputTextModule,
+    DialogModule
+
+
 
   ]
 })

@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { PrimeNGConfig } from 'primeng/api';
 import { Expense } from 'src/app/models/expense';
 import { ExpenseDetails } from 'src/app/models/expenseDetails';
 import { ExpenseService } from 'src/app/services/expense.service';
@@ -15,32 +16,33 @@ export class ExpenseDetailComponent implements OnInit {
 
   @Input() expense!: Expense;
 
-  @Input() newExpense: boolean = true;
-
-  displayedColumns: string[] = ['description'];
-
   form!: FormGroup;
 
-  dataSource = new MatTableDataSource<ExpenseDetails>();
+  @Input() display: boolean = false;
+
+  @Output() displayChange = new EventEmitter();
+
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly expenseService: ExpenseService
+    private readonly expenseService: ExpenseService,
+    private primengConfig: PrimeNGConfig
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.iniciaForm();
-
-    if (this.expense == undefined) {
-      this.newExpense = true;
-    }
-    else {
-      this.newExpense = false
-      this.dataSource.data = this.expense.expenseDetailsViewModels;
-    }
+    this.primengConfig.ripple = true;
 
   }
+  ngOnDestroy() {
+    this.displayChange.unsubscribe();
+  }
 
+  onClose() {
+    this.displayChange.emit(false);
+  }
+  ngOnChanges() {
+    this.iniciaForm();
+  }
   async iniciaForm() {
     this.form = this.formBuilder.group({
       description: [this.expense?.description, [Validators.required]],

@@ -15,15 +15,13 @@ import { ExpenseDetailComponent } from '../expense-detail/expense-detail.compone
 })
 export class ExpenseListComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  expenses: Expense[] = []
 
-  displayedColumns: string[] = ['description','editar', 'excluir'];
+  expense!: Expense;
 
-  dataSource = new MatTableDataSource<Expense>();
+  display: boolean = false;
 
   constructor(
-    private readonly dialog: MatDialog,
-    private readonly loader: LoaderService,
     private readonly expenseService: ExpenseService
     ) { }
 
@@ -34,43 +32,29 @@ export class ExpenseListComponent implements OnInit {
 			this.loadExpenses();
 		});
   }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+
 
   async loadExpenses(): Promise<void> {
-    this.loader.setLoading(true)
 
     try {
-      this.dataSource.data = await this.expenseService.get();
+      this.expenses = await this.expenseService.get();
     } catch (error) {
       console.log(error)
     }
     finally{
-      this.loader.setLoading(false)
+
     }
 	}
-
-  openDialog(obj:any) {
-    const dialogRef = this.dialog.open(ExpenseDetailComponent);
-
-    if (obj) dialogRef.componentInstance.expense = obj;
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  openDialog() {
+    this.display = true;
   }
-
-  openDialogDelete() {
-    const dialogRef = this.dialog.open(ModalDeleteComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  openDialogEdit(obj: any){
+    this.display = true;
+    this.expense = obj;
   }
-
-  applyFilter(filterValue: string){
-    this.dataSource.filter = filterValue;
+  onDialogClose(event: any) {
+    this.display = event;
+    console.log('aaaa');
   }
 
 }

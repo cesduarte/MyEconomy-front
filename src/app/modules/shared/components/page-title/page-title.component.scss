@@ -1,53 +1,15 @@
-.title {
-    background: none;
-    background-color: #926dde;
-    color: white;
-    padding: 30px;
-    .t_title {
 
-    }
-
-    .t_breadcrumb {
-
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        background-color: #01447e;
-
-        li {
-            display: inline;
-            font-size: 18px;
-
-            +li:before {
-                padding: 8px;
-                color: white;
-                content: "/\00a0";
-            }
-
-            a {
-                color: #0275d8;
-                text-decoration: none;
-            }
-
-            a:hover {
-                color: #01447e;
-                text-decoration: underline;
-            }
-        }
-    }
-}
-.card-header{
-  border-radius: 3px;
-  margin-top: -50px;
-  padding: 15px
-}
-.card-header-danger{
-  background-color: #926dde;
-  color: white;
-}
 .p1{
   font-size: 20px;
 }
 .p2{
   font-size: 10px;
+}
+
+.pgt-card-header{
+  margin-top: -50px;
+  background-color: #926dde;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }

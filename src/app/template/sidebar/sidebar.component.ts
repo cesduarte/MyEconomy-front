@@ -20,5 +20,8 @@ export class SidebarComponent implements OnInit {
   getvisibleMenu(){
     return this.toogleService.getvisibleMenu();
   }
+  close(){
+    this.toogleService.alterVisibleMenu()
+  }
 
 }
