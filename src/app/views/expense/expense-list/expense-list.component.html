@@ -6,7 +6,7 @@
       [subtitulo]="'Lista de despesas cadastradas'"
     ></app-page-title>
     <div class="mt-3">
-      <app-page-filter-add (openDialogEmiter)="openDialog()"></app-page-filter-add>
+      <app-page-filter-add (openDialogEmiter)="openDialog(null)"></app-page-filter-add>
       <div class="card mt-3" >
         <p-table [value]="expenses" styleClass="p-datatable-sm" [tableStyle]="{'min-width': '50rem'}">
           <ng-template pTemplate="header">
@@ -20,7 +20,7 @@
                   <td>{{product.description}}</td>
                   <td>
                     <div class="flex align-items-center justify-content-center gap-2">
-                        <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialogEdit(product)"></button>
+                        <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialog(product)"></button>
                         <button  pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text"></button>
                     </div>
                   </td>
@@ -34,4 +34,4 @@
     </div>
   </div>
 </div>
-<app-expense-detail [display]="display" (displayChange)="onDialogClose($event)" [expense]="expense"></app-expense-detail>
+<app-expense-detail [displayBasic2]="display" [expense]="expense" (displayChange)="onDialogClose($event)"></app-expense-detail>

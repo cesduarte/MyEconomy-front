@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
 import { PrimeNGConfig } from 'primeng/api';
 import { Expense } from 'src/app/models/expense';
-import { ExpenseDetails } from 'src/app/models/expenseDetails';
 import { ExpenseService } from 'src/app/services/expense.service';
 import Swal from 'sweetalert2';
 
@@ -18,23 +16,20 @@ export class ExpenseDetailComponent implements OnInit {
 
   form!: FormGroup;
 
-  @Input() display: boolean = false;
-
   @Output() displayChange = new EventEmitter();
+
+  @Input() displayBasic2 = true;
 
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly expenseService: ExpenseService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
   ) { }
 
   async ngOnInit(): Promise<void> {
     this.primengConfig.ripple = true;
 
-  }
-  ngOnDestroy() {
-    this.displayChange.unsubscribe();
   }
 
   onClose() {
@@ -51,6 +46,7 @@ export class ExpenseDetailComponent implements OnInit {
       expenseValue: [this.expense?.expenseValue],
       idUser: [this.expense?.idUser]
     });
+    console.log(this.expense)
   }
   async save() {
 

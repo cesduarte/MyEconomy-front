@@ -14,7 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatDialogModule} from '@angular/material/dialog';
+
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { PageFilterAddComponent } from './components/page-filter-add/page-filter-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +28,9 @@ import {PanelModule} from 'primeng/panel';
 import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 import {DialogModule} from 'primeng/dialog';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+
 
 
 
@@ -36,7 +39,7 @@ import {DialogModule} from 'primeng/dialog';
     PageTitleComponent,
     PageFilterAddComponent,
     SpinnerComponent,
-    DatetimeFormatPipe
+    DatetimeFormatPipe,
 
   ],
   imports: [
@@ -57,7 +60,8 @@ import {DialogModule} from 'primeng/dialog';
     PanelModule,
     CardModule,
     InputTextModule,
-    DialogModule
+    // DialogModule,
+    DynamicDialogModule,
 
 
 
@@ -75,7 +79,7 @@ import {DialogModule} from 'primeng/dialog';
     MatPaginatorModule,
     MatInputModule,
     MatMenuModule,
-    MatDialogModule,
+
     MatCheckboxModule,
     MatSnackBarModule,
     PageTitleComponent,
@@ -91,7 +95,10 @@ import {DialogModule} from 'primeng/dialog';
     PanelModule,
     CardModule,
     InputTextModule,
-    DialogModule
+    DialogModule,
+    DynamicDialogModule,
+    // MatDialogModule
+
 
 
 

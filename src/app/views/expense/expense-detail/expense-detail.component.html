@@ -1,66 +1,42 @@
-<p-dialog [(visible)]="display" [(visible)]="display" [style]="{width: '50vw'}" [modal]="true" styleClass="p-fluid">
-  <h5>Addons</h5>
-  <div class="grid p-fluid">
-      <div class="col-12 md:col-4">
-          <div class="p-inputgroup">
-              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-              <input type="text" pInputText placeholder="Username">
-          </div>
-      </div>
+<p-dialog header="Long Content" [(visible)]="displayBasic2" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000" (onHide)="onClose()">
+  <form [formGroup]="form">
 
-      <div class="col-12 md:col-4">
-          <div class="p-inputgroup">
-              <span class="p-inputgroup-addon">$</span>
-              <input type="text" pInputText placeholder="Price">
-              <span class="p-inputgroup-addon">.00</span>
-          </div>
-      </div>
-
-      <div class="col-12 md:col-4">
-          <div class="p-inputgroup">
-              <span class="p-inputgroup-addon">www</span>
-              <input type="text" pInputText placeholder="Website">
-          </div>
-      </div>
-  </div>
-
-  <h5>Multiple Addons</h5>
-  <div class="grid">
-      <div class="col-12">
-          <div class="p-inputgroup">
-              <span class="p-inputgroup-addon"><i class="pi pi-tags" style="line-height: 1.25;"></i></span>
-              <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart" style="line-height: 1.25;"></i></span>
-              <input type="text" pInputText placeholder="Price">
-              <span class="p-inputgroup-addon">$</span>
-              <span class="p-inputgroup-addon">.00</span>
-          </div>
-      </div>
-  </div>
-
-  <h5>Button Addons</h5>
-  <div class="grid p-fluid">
-      <div class="col-12 md:col-4">
-          <div class="p-inputgroup">
-              <button type="button" pButton pRipple label="Search"></button>
-              <input type="text" pInputText placeholder="Keyword">
-          </div>
-      </div>
-
-      <div class="col-12 md:col-4">
-          <div class="p-inputgroup">
-              <input type="text" pInputText placeholder="Keyword">
-              <button type="button" pButton pRipple icon="pi pi-refresh" styleClass="p-button-warn"></button>
-          </div>
-      </div>
-
-      <div class="col-12 md:col-4">
-          <div class="p-inputgroup">
-              <button type="button" pButton pRipple icon="pi pi-check" styleClass="p-button-success"></button>
-              <input type="text" pInputText placeholder="Vote">
-              <button type="button" pButton pRipple icon="pi pi-times" styleClass="p-button-danger"></button>
-          </div>
-      </div>
-  </div>
+  <div class="formgrid grid">
+    <div class="field col-12 md:col-12">
+        <label for="firstname6">Descrição</label>
+        <input id="firstname6" type="text"  formControlName="description"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+    <div class="field col-12 md:col-6">
+        <label for="lastname6">Lastname</label>
+        <input id="lastname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+    <div class="field col-12">
+        <label for="address">Address</label>
+        <textarea id="address" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
+    </div>
+    <div class="field col-12 md:col-6">
+        <label for="city">City</label>
+        <input id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+    <div class="field col-12 md:col-3">
+        <label for="state">State</label>
+        <select id="state" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
+            <option>Arizona</option>
+            <option>California</option>
+            <option>Florida</option>
+            <option>Ohio</option>
+            <option>Washington</option>
+        </select>
+    </div>
+    <div class="field col-12 md:col-3">
+        <label for="zip">Zip</label>
+        <input id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+  </div>Inline style of the content section.
+</form>
+  <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="displayBasic2=false" label="Yes" class="p-button-text"></p-button>
+      <p-button icon="pi pi-times" (click)="displayBasic2=false" label="No"></p-button>
+  </ng-template>
 </p-dialog>
-
-
