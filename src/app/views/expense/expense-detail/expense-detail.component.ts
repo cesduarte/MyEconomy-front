@@ -15,29 +15,22 @@ export class ExpenseDetailComponent implements OnInit {
   @Input() expense!: Expense;
 
   form!: FormGroup;
+  date3!: Date;
 
-  @Output() displayChange = new EventEmitter();
+  cities!: any[];
 
-  @Input() displayBasic2 = true;
+    selectedCity1: any;
 
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly expenseService: ExpenseService,
-    private primengConfig: PrimeNGConfig,
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.primengConfig.ripple = true;
 
   }
 
-  onClose() {
-    this.displayChange.emit(false);
-  }
-  ngOnChanges() {
-    this.iniciaForm();
-  }
   async iniciaForm() {
     this.form = this.formBuilder.group({
       description: [this.expense?.description, [Validators.required]],

@@ -9,6 +9,8 @@ import { NavbarComponent } from './template/navbar/navbar.component';
 import { ModalDeleteComponent } from './helpers/modal-delete/modal-delete.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

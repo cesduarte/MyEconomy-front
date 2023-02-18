@@ -1,42 +1,50 @@
-<p-dialog header="Long Content" [(visible)]="displayBasic2" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000" (onHide)="onClose()">
-  <form [formGroup]="form">
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Cadastro de despesas</h4>
+  <button type="button" class="btn-close close pull-right" aria-label="Close" >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Descrição</label>
+          <input type="text" class="form-control"/>
+          <small id="username2-help" class="p-invalid">O campo descrição é obrigatório.</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label class="form-label">Data de vencimento</label>
+          <input type="text" class="form-control"/>
+          <small id="username2-help" class="p-invalid">O campo data de vencimento é obrigatório.</small>
+        </div>
+        <div class="col-12 col-md-4">
+          <label class="form-label">Parcelas</label>
+          <input type="text" class="form-control"/>
+          <small id="username2-help" class="p-invalid">O campo parcelas é obrigatório.</small>
+        </div>
+        <div class="col-12 col-md-4">
+          <label class="form-label">Valor</label>
+          <input type="text" class="form-control"/>
+          <small id="username2-help" class="p-invalid">O campo valor é obrigatório.</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Usuário</label>
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+           <option selected>Selecione...</option>
+            <option>...</option>
+          </select>
+          <!-- <small id="username2-help" class="p-invalid">O campo data de vencimento é obrigatório.</small> -->
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
 
-  <div class="formgrid grid">
-    <div class="field col-12 md:col-12">
-        <label for="firstname6">Descrição</label>
-        <input id="firstname6" type="text"  formControlName="description"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12 md:col-6">
-        <label for="lastname6">Lastname</label>
-        <input id="lastname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12">
-        <label for="address">Address</label>
-        <textarea id="address" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
-    </div>
-    <div class="field col-12 md:col-6">
-        <label for="city">City</label>
-        <input id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12 md:col-3">
-        <label for="state">State</label>
-        <select id="state" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
-            <option>Arizona</option>
-            <option>California</option>
-            <option>Florida</option>
-            <option>Ohio</option>
-            <option>Washington</option>
-        </select>
-    </div>
-    <div class="field col-12 md:col-3">
-        <label for="zip">Zip</label>
-        <input id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-  </div>Inline style of the content section.
-</form>
-  <ng-template pTemplate="footer">
-      <p-button icon="pi pi-check" (click)="displayBasic2=false" label="Yes" class="p-button-text"></p-button>
-      <p-button icon="pi pi-times" (click)="displayBasic2=false" label="No"></p-button>
-  </ng-template>
-</p-dialog>
+</div>

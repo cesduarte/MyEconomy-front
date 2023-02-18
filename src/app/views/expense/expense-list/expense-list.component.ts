@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
 import { DialogService } from 'primeng/dynamicdialog';
 
@@ -18,40 +19,46 @@ export class ExpenseListComponent implements OnInit {
 
   expenses: Expense[] = []
 
-  expense!: Expense;
-
-  display: boolean = false;
+  bsModalRef?: BsModalRef
 
   constructor(
-    private readonly expenseService: ExpenseService
-    ) { }
+    private readonly expenseService: ExpenseService,
+    private modalService: BsModalService
+  ) { }
 
   async ngOnInit(): Promise<void> {
-		await this.loadExpenses();
+    await this.loadExpenses();
 
     this.expenseService.updateExpense.subscribe(async (Expense) => {
-			this.loadExpenses();
-		});
+      this.loadExpenses();
+    });
   }
 
 
   async loadExpenses(): Promise<void> {
-
     try {
       this.expenses = await this.expenseService.get();
     } catch (error) {
       console.log(error)
     }
-    finally{
+    finally {
 
     }
-	}
-  openDialog(obj: any){
-    this.display = true;
-    this.expense = obj;
   }
-  onDialogClose(event: any) {
-    this.display = event;
+  openDialog(obj: any) {
+    // const initialState: ModalOptions = {
+    //   initialState: {
+    //     class: 'modal-lg',
+    //     title: 'Modal with component'
+    //   }
+    // };
+
+    this.bsModalRef = this.modalService.show(ExpenseDetailComponent,
+      {
+        class: 'modal-lg modal-dialog-centered',
+      },
+    );
   }
+
 
 }

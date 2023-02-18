@@ -27,9 +27,10 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {PanelModule} from 'primeng/panel';
 import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
-import {DialogModule} from 'primeng/dialog';
-import {DynamicDialogModule} from 'primeng/dynamicdialog';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+
 
 
 
@@ -60,8 +61,9 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
     PanelModule,
     CardModule,
     InputTextModule,
-    // DialogModule,
-    DynamicDialogModule,
+    ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+
 
 
 
@@ -95,9 +97,8 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
     PanelModule,
     CardModule,
     InputTextModule,
-    DialogModule,
-    DynamicDialogModule,
-    // MatDialogModule
+    ModalModule,
+    BsDatepickerModule,
 
 
 
