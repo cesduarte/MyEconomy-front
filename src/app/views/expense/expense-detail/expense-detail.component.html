@@ -17,8 +17,8 @@
       <div class="row">
         <div class="col-12 col-md-4">
           <label class="form-label">Data de vencimento</label>
-          <input type="text" class="form-control"/>
-          <small id="username2-help" class="p-invalid">O campo data de vencimento é obrigatório.</small>
+          <input type="text" bsDatepicker class="form-control"/>
+          <small id="username2-help" class="p-invalid">O campo descrição é obrigatório.</small>
         </div>
         <div class="col-12 col-md-4">
           <label class="form-label">Parcelas</label>
@@ -34,7 +34,6 @@
       <div class="row">
         <div class="col-12 col-md-12">
           <label class="form-label">Usuário</label>
-          <label for="inputState">State</label>
           <select id="inputState" class="form-control">
            <option selected>Selecione...</option>
             <option>...</option>
@@ -43,6 +42,38 @@
         </div>
       </div>
     </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Data de vencimento</th>
+          <th scope="col">Data de pagamento</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01/01/2023</td>
+          <td>03/01/2023</td>
+          <td>100.00</td>
+          <td>Pagamento efetuado</td>
+        </tr>
+        <tr>
+          <td>01/01/2023</td>
+          <td></td>
+          <td>100.00</td>
+          <td>Aberto</td>
+        </tr>
+        <tr>
+          <td>01/01/2023</td>
+          <td>03/01/2023</td>
+          <td>100.00</td>
+          <td>Pagamento efetuado</td>
+        </tr>
+
+      </tbody>
+    </table>
   </form>
 </div>
 <div class="modal-footer">
