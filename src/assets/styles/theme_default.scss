@@ -5,12 +5,18 @@
 @import "./footer";
 @import "./breadcrumb";
 @import "./variables.scss";
+@import "./modal";
 
 
 
 *{
   margin: 0;
   padding: 0;
+}
+
+.mymodal-dialog-lg{
+  max-width: 1200px !important;
+  width: 1200px;
 }
 
 

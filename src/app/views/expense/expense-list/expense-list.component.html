@@ -6,21 +6,23 @@
       [subtitulo]="'Lista de despesas cadastradas'"
     ></app-page-title>
     <div class="mt-3">
-      <app-page-filter-add (openDialogEmiter)="openDialog(null)"></app-page-filter-add>
+      <app-page-filter-add (openDialogEmiter)="openDialog(null)" (applyFilterEmiter)="dt.filterGlobal($event, 'contains')"></app-page-filter-add>
       <div class="card mt-3" >
-        <p-table [value]="expenses" styleClass="p-datatable-sm" [tableStyle]="{'min-width': '50rem'}">
+        <p-table #dt [value]="expenses" styleClass="p-datatable-sm" [paginator]="true" [rows]="5"
+        [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
+        [globalFilterFields]="['description']">
           <ng-template pTemplate="header">
               <tr>
                   <th>Descrição</th>
                   <th></th>
               </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-product>
+          <ng-template pTemplate="body" let-expense>
               <tr>
-                  <td>{{product.description}}</td>
+                  <td>{{expense.description}}</td>
                   <td>
                     <div class="flex align-items-center justify-content-center gap-2">
-                        <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialog(product)"></button>
+                        <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialog(expense)"></button>
                         <button  pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text"></button>
                     </div>
                   </td>

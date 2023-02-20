@@ -21,6 +21,7 @@ export class ExpenseService {
   save(data: Expense,id?: number): Promise<any> {
 
     if (id){
+      data.id = id;
       return firstValueFrom(this.http.put(this.baseURL.concat('/'), data));
     }
     return firstValueFrom(this.http.post(this.baseURL.concat('/'), data));

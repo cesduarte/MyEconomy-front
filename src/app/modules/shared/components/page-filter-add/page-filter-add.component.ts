@@ -10,7 +10,9 @@ export class PageFilterAddComponent{
   @Output() openDialogEmiter = new EventEmitter();
   @Output() openDialogSearchEmiter = new EventEmitter();
   @Output() applyFilterEmiter = new EventEmitter();
-  @Input() displayFilter!: boolean;
+
+  @Input() displayFilter!: boolean
+  filter!: string;
 
   openDialog() {
     this.openDialogEmiter.emit();
@@ -18,7 +20,7 @@ export class PageFilterAddComponent{
   openDialogSearch(){
     this.openDialogSearchEmiter.emit();
   }
-  applyFilter(event: any){
-    this.applyFilterEmiter.emit(event.target.value);
+  applyFilter(){
+    this.applyFilterEmiter.emit(this.filter);
   }
 }

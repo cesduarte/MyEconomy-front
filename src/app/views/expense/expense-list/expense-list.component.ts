@@ -46,18 +46,21 @@ export class ExpenseListComponent implements OnInit {
     }
   }
   openDialog(obj: any) {
-    // const initialState: ModalOptions = {
-    //   initialState: {
-    //     class: 'modal-lg',
-    //     title: 'Modal with component'
-    //   }
-    // };
+    const initialState: ModalOptions = {
+      initialState: {
+        expense: obj,
+        title: 'Modal with component'
+      },
+      class: 'mymodal-dialog-lg modal-dialog-centered'
+    };
 
     this.bsModalRef = this.modalService.show(ExpenseDetailComponent,
-      {
-        class: 'modal-lg modal-dialog-centered',
-      },
+      // {
+      //   class: 'mymodal-dialog-lg modal-dialog-centered',
+      // },
+      initialState
     );
+    // if (obj) this.bsModalRef.componentInstance.expense = obj;
   }
 
 

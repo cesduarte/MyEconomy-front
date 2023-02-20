@@ -14,8 +14,9 @@
         pInputText
         class="p-inputtext-sm"
         placeholder="Buscar..."
+        [(ngModel)]="filter"
       />
-      <p-button icon="pi pi-search" styleClass="p-button-sm"></p-button>
+      <p-button icon="pi pi-search" styleClass="p-button-sm" (onClick)="applyFilter()"></p-button>
     </span>
   </div>
 </p-toolbar>
