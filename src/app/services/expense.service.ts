@@ -27,4 +27,7 @@ export class ExpenseService {
     return firstValueFrom(this.http.post(this.baseURL.concat('/'), data));
 
 	}
+  delete(id: number){
+    firstValueFrom(this.http.delete(this.baseURL.concat('/'+id)));
+  }
 }

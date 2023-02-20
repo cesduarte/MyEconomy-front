@@ -32,9 +32,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 
-
-
-
 @NgModule({
   declarations: [
     PageTitleComponent,
@@ -63,9 +60,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     InputTextModule,
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
-
-
-
 
 
     ],
@@ -99,8 +93,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     InputTextModule,
     ModalModule,
     BsDatepickerModule,
-
-
 
 
   ]

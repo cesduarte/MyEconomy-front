@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+
 
 import { DialogService } from 'primeng/dynamicdialog';
 
 import { Expense } from 'src/app/models/expense';
 import { ExpenseService } from 'src/app/services/expense.service';
+import Swal from 'sweetalert2';
 
 import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
 
@@ -23,10 +25,12 @@ export class ExpenseListComponent implements OnInit {
 
   constructor(
     private readonly expenseService: ExpenseService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+
   ) { }
 
   async ngOnInit(): Promise<void> {
+
     await this.loadExpenses();
 
     this.expenseService.updateExpense.subscribe(async (Expense) => {
@@ -39,6 +43,7 @@ export class ExpenseListComponent implements OnInit {
     try {
       this.expenses = await this.expenseService.get();
     } catch (error) {
+
       console.log(error)
     }
     finally {
@@ -49,7 +54,7 @@ export class ExpenseListComponent implements OnInit {
     const initialState: ModalOptions = {
       initialState: {
         expense: obj,
-        title: 'Modal with component'
+        isInclusao: !obj
       },
       class: 'mymodal-dialog-lg modal-dialog-centered'
     };
@@ -61,6 +66,30 @@ export class ExpenseListComponent implements OnInit {
       initialState
     );
     // if (obj) this.bsModalRef.componentInstance.expense = obj;
+  }
+ delete(expense: Expense) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Tem certeza que deseja deletar?',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        try {
+          this.expenseService.delete(expense.id)
+          Swal.fire('Despesa deletada com sucesso!', '', 'success')
+        }
+        catch (error) {
+          console.error('enviaForm', error);
+        }
+        finally{
+          this.expenseService.updateExpense.emit(expense ? expense : true);
+        }
+      }
+    })
+
+
   }
 
 

@@ -12,25 +12,33 @@
       <div class="row align-items-start">
         <div class="col-12 col-md-12">
           <label class="form-label">Descrição</label>
-          <input type="text" class="form-control" formControlName="description" />
-          <small id="username2-help" class="p-invalid">O campo descrição é obrigatório.</small>
+          <input type="text" class="form-control" formControlName="description" [ngClass]="cssValidator(f.description)"/>
+          <div *ngIf="f.description.errors?.required" class="invalid-feedback">
+            <small id="username2-help" class="p-invalid">O campo descrição é obrigatório.</small>
+          </div>
         </div>
       </div>
       <div class="row" *ngIf="!expense">
         <div class="col-12 col-md-4">
           <label class="form-label">Data de vencimento</label>
-          <input type="text" bsDatepicker class="form-control" formControlName="dueDate"/>
-          <small id="username2-help" class="p-invalid">O campo descrição é obrigatório.</small>
+          <input type="text" bsDatepicker class="form-control" formControlName="dueDate" [ngClass]="cssValidator(f.dueDate)"/>
+          <div *ngIf="f.dueDate.errors?.required" class="invalid-feedback">
+            <small id="username2-help" class="p-invalid">O campo data de vencimento obrigatório.</small>
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <label class="form-label">Parcelas</label>
-          <input type="text" class="form-control" formControlName ="installments"/>
-          <small id="username2-help" class="p-invalid">O campo parcelas é obrigatório.</small>
+          <input type="text" class="form-control" formControlName ="installments" [ngClass]="cssValidator(f.installments)"/>
+          <div *ngIf="f.installments.errors?.required" class="invalid-feedback">
+            <small id="username2-help" class="p-invalid">O campo parcelas é obrigatório.</small>
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <label class="form-label">Valor</label>
-          <input type="text" class="form-control" formControlName ="expenseValue"/>
-          <small id="username2-help" class="p-invalid">O campo valor é obrigatório.</small>
+          <input type="text" class="form-control" formControlName ="expenseValue" [ngClass]="cssValidator(f.expenseValue)"/>
+          <div *ngIf="f.expenseValue.errors?.required" class="invalid-feedback">
+            <small id="username2-help" class="p-invalid">O campo valor é obrigatório.</small>
+          </div>
         </div>
       </div>
       <div class="row">
