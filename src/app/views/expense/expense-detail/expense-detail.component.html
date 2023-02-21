@@ -21,7 +21,7 @@
       <div class="row" *ngIf="!expense">
         <div class="col-12 col-md-4">
           <label class="form-label">Data de vencimento</label>
-          <input type="text" bsDatepicker class="form-control" formControlName="dueDate" [ngClass]="cssValidator(f.dueDate)"/>
+          <input type="text" bsDatepicker class="form-control" formControlName="dueDate" [bsConfig]="bsConfig" [ngClass]="cssValidator(f.dueDate)"/>
           <div *ngIf="f.dueDate.errors?.required" class="invalid-feedback">
             <small id="username2-help" class="p-invalid">O campo data de vencimento obrigatório.</small>
           </div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { PrimeNGConfig } from 'primeng/api';
 import { Expense } from 'src/app/models/expense';
@@ -21,13 +22,23 @@ export class ExpenseDetailComponent implements OnInit {
   get f(): any {
     return this.form.controls;
   }
+  get bsConfig(): any {
+    return {
+      adaptivePosition: true,
+      dateInputFormat: 'DD/MM/YYYY',
+      showWeekNumbers: false,
+    }
+  }
 
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly expenseService: ExpenseService,
-    public bsModalRef: BsModalRef
-  ) { }
+    public bsModalRef: BsModalRef,
+    private localeService: BsLocaleService
+  ) {
+    this.localeService.use('pt-br');
+  }
 
   async ngOnInit(): Promise<void> {
     this.iniciaForm()
