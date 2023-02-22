@@ -1,18 +1,21 @@
-<div class="card mt-3" *ngIf="details.length > 0">
-  <p-table [value]="details" styleClass="p-datatable-sm" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}">
+<div *ngIf="details.length > 0">
+  <p-table [value]="details" styleClass="p-datatable-gridlines"  [scrollable]="true" scrollHeight="250px" [tableStyle]="{'min-width': '50rem'}">
     <ng-template pTemplate="header">
         <tr>
             <th>Data de vencimento</th>
-            <th>Data de pagamento</th>
             <th>Valor</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-detail>
         <tr>
             <td>{{detail.dueDay | DateFormatPipe}}</td>
-            <td>{{detail.paymentDate | DateFormatPipe}}</td>
-            <td>{{detail.expenseValue| currency:'R$ '}}</td>
+            <td>{{detail.expenseValue | currency:'R$ '}}</td>
         </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <span>Quantidade de parcelas: {{this.details.length}}</span> |
+      <span>Valor total: {{ getexpenseValue() | currency:'R$ '}}</span>
+
     </ng-template>
 </p-table>
 </div>

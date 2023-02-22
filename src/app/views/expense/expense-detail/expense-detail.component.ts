@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerDirective, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { PrimeNGConfig } from 'primeng/api';
 import { Expense } from 'src/app/models/expense';
@@ -18,7 +18,6 @@ export class ExpenseDetailComponent implements OnInit {
   form!: FormGroup;
   isInclusao: boolean = false;
 
-
   get f(): any {
     return this.form.controls;
   }
@@ -27,6 +26,7 @@ export class ExpenseDetailComponent implements OnInit {
       adaptivePosition: true,
       dateInputFormat: 'DD/MM/YYYY',
       showWeekNumbers: false,
+      isAnimated: true
     }
   }
 
@@ -49,7 +49,7 @@ export class ExpenseDetailComponent implements OnInit {
     if (this.isInclusao) {
       this.form = this.formBuilder.group({
         description: [this.expense?.description, [Validators.required]],
-        dueDate: [this.expense?.dueDate, [Validators.required]],
+        dueDate: [this.expense?.dueDate, [Validators.required], Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)],
         installments: [this.expense?.installments, [Validators.required]],
         expenseValue: [this.expense?.expenseValue, [Validators.required]],
         idUser: [this.expense?.idUser]
@@ -87,7 +87,8 @@ export class ExpenseDetailComponent implements OnInit {
     }
   }
   public cssValidator(campoForm: FormControl | AbstractControl): any {
-    return { 'is-invalid': campoForm.errors && campoForm.touched };
+    return { 'is-invalid': campoForm.errors && (campoForm.dirty || campoForm.touched )};
   }
+
 
 }

@@ -8,17 +8,22 @@
     <div class="mt-3">
       <app-page-filter-add (openDialogEmiter)="openDialog(null)" (applyFilterEmiter)="dt.filterGlobal($event, 'contains')"></app-page-filter-add>
       <div class="card mt-3" >
-        <p-table #dt [value]="expenses" styleClass="p-datatable-sm" [paginator]="true" [rows]="5"
+        <p-table #dt [value]="expenses" dataKey="description" styleClass="p-datatable-sm" [paginator]="true" [rows]="5"
         [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
         [globalFilterFields]="['description']">
           <ng-template pTemplate="header">
               <tr>
-                  <th>Descrição</th>
+                  <th style="width: 5rem"></th>
+                  <th pSortableColumn="name">Descrição<p-sortIcon field="name"></p-sortIcon></th>
                   <th></th>
+
               </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-expense>
+          <ng-template pTemplate="body" let-expense let-expanded="expanded">
               <tr>
+                  <td>
+                      <button type="button" pButton pRipple [pRowToggler]="expense" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                  </td>
                   <td>{{expense.description}}</td>
                   <td>
                     <div class="flex align-items-center justify-content-center gap-2">
@@ -26,10 +31,19 @@
                         <button  pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text"(click)="delete(expense)"></button>
                     </div>
                   </td>
-
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="rowexpansion" let-expense>
+              <tr>
+                  <td colspan="7">
+                      <div class="p-3">
+                        <app-expense-detail-table [details]="expense?.expenseDetailsViewModels ?? []"></app-expense-detail-table>
+                      </div>
+                  </td>
               </tr>
           </ng-template>
       </p-table>
+
 
     </div>
 

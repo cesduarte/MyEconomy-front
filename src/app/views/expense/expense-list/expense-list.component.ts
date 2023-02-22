@@ -42,6 +42,7 @@ export class ExpenseListComponent implements OnInit {
   async loadExpenses(): Promise<void> {
     try {
       this.expenses = await this.expenseService.get();
+      console.log(this.expenses)
     } catch (error) {
 
       console.log(error)

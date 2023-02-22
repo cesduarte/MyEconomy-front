@@ -9,4 +9,12 @@ import { ExpenseDetails } from 'src/app/models/expenseDetails';
 export class ExpenseDetailTableComponent {
 
   @Input() details: ExpenseDetails[] = [];
+
+
+  getexpenseValue(): number{
+    var total = this.details.reduce((accumulator, object) => {
+      return accumulator + object.expenseValue;
+    }, 0);
+    return total;
+  }
 }
