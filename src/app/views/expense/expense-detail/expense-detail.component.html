@@ -21,7 +21,7 @@
       <div class="row " *ngIf="!expense">
         <div class="col-12 col-md-4">
           <label class="form-label">Data de vencimento</label>
-          <input type="date" onkeydown="return false" class="form-control" formControlName="dueDate"  [ngClass]="cssValidator(f.dueDate)" required>
+          <input type="date" onkeydown="return false" class="form-control" formControlName="dueDate"  [ngClass]="cssValidator(f.dueDate)">
           <div *ngIf="f.dueDate.errors?.required" class="invalid-feedback">
             <small id="username2-help" class="p-invalid">O campo data de vencimento obrigatório.</small>
           </div>
@@ -43,10 +43,10 @@
       </div>
       <div class="row">
         <div class="col-12 col-md-12">
-          <label class="form-label">Usuário</label>
-          <select id="inputState" class="form-control">
-           <option selected>Selecione...</option>
-            <option>...</option>
+          <label class="form-label">Responsável</label>
+          <select id="inputState" class="form-control" formControlName="userid">
+           <option value="default">--Selecione o usuário--</option>
+            <option *ngFor="let user of users" [ngValue]="user.id">{{user.fullName}}</option>
           </select>
           <!-- <small id="username2-help" class="p-invalid">O campo data de vencimento é obrigatório.</small> -->
         </div>

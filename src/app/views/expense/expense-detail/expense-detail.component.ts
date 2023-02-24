@@ -4,7 +4,9 @@ import { BsDatepickerDirective, BsLocaleService } from 'ngx-bootstrap/datepicker
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { PrimeNGConfig } from 'primeng/api';
 import { Expense } from 'src/app/models/expense';
+import { User } from 'src/app/models/user';
 import { ExpenseService } from 'src/app/services/expense.service';
+import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,6 +19,8 @@ export class ExpenseDetailComponent implements OnInit {
   @Input() expense!: Expense;
   form!: FormGroup;
   isInclusao: boolean = false;
+  users: User[] = []
+  userSelected!: number;
 
   get f(): any {
     return this.form.controls;
@@ -35,13 +39,15 @@ export class ExpenseDetailComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private readonly expenseService: ExpenseService,
     public bsModalRef: BsModalRef,
-    private localeService: BsLocaleService
+    private localeService: BsLocaleService,
+    private readonly userService: UserService
   ) {
     this.localeService.use('pt-br');
   }
 
   async ngOnInit(): Promise<void> {
     this.iniciaForm()
+    await this.loadUsers();
   }
 
   async iniciaForm() {
@@ -49,21 +55,28 @@ export class ExpenseDetailComponent implements OnInit {
     if (this.isInclusao) {
       this.form = this.formBuilder.group({
         description: [this.expense?.description, [Validators.required]],
-        dueDate: [this.expense?.dueDate, [Validators.required], Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)],
+        dueDate: [this.expense?.dueDate, [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],
         installments: [this.expense?.installments, [Validators.required]],
         expenseValue: [this.expense?.expenseValue, [Validators.required]],
-        idUser: [this.expense?.idUser]
+        userid: [this.expense?.user?.id]
       });
     }
     else {
       this.form = this.formBuilder.group({
         description: [this.expense?.description, [Validators.required]],
-        idUser: [this.expense?.idUser]
+        userid: [this.expense?.user?.id]
       });
     }
   }
-  async save() {
+  async loadUsers(){
+    try {
+      this.users = await this.userService.get();
 
+    } catch (error) {
+
+    }
+  }
+  async save() {
     if (!this.form.valid) {
       this.form.markAllAsTouched();
     }
@@ -87,7 +100,7 @@ export class ExpenseDetailComponent implements OnInit {
     }
   }
   public cssValidator(campoForm: FormControl | AbstractControl): any {
-    return { 'is-invalid': campoForm.errors && (campoForm.dirty || campoForm.touched )};
+    return { 'is-invalid': campoForm.errors && (campoForm.dirty || campoForm.touched) };
   }
 
 

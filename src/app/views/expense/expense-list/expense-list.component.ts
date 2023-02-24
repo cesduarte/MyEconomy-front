@@ -6,7 +6,9 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { DialogService } from 'primeng/dynamicdialog';
 
 import { Expense } from 'src/app/models/expense';
+
 import { ExpenseService } from 'src/app/services/expense.service';
+
 import Swal from 'sweetalert2';
 
 import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
@@ -25,7 +27,9 @@ export class ExpenseListComponent implements OnInit {
 
   constructor(
     private readonly expenseService: ExpenseService,
-    private modalService: BsModalService,
+    private readonly modalService: BsModalService,
+
+
 
   ) { }
 
