@@ -9,11 +9,11 @@ export const MENU_ITEMS: IMenuItem[] =[
 		link: "/home",
 	},
     {
-		key: "classificacao",
-		label: "Classificação",
+		key: "category",
+		label: "Categorias",
 		isTitle: false,
 		icon: "notes",
-		link: "/classification",
+		link: "/category",
 	},
     {
 		key: "despesas",
