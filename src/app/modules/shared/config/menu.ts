@@ -41,7 +41,7 @@ export const MENU_ITEMS: IMenuItem[] =[
 		label: "Usuários",
 		isTitle: false,
 		icon: "people",
-		link: "",
+		link: "user",
 	},
     {
 		key: "perfil",

@@ -7,7 +7,7 @@ import { ModalDeleteComponent } from 'src/app/helpers/modal-delete/modal-delete.
 import { Classification } from 'src/app/models/classification';
 import { ClassificationService } from 'src/app/services/classification.service';
 import { LoaderService } from 'src/app/services/loader.service';
-import { PeriodicElement } from '../../user/profile/profile-detail/profile-detail.component';
+
 import { ClassificationDetailComponent } from '../classification-detail/classification-detail.component';
 
 type NewType = IBreadcrumbItem[];
