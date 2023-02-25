@@ -9,7 +9,7 @@
       <app-page-filter-add (openDialogEmiter)="openDialog(null)" (applyFilterEmiter)="dt.filterGlobal($event, 'contains')"></app-page-filter-add>
       <div class="card mt-3" >
         <p-table #dt [value]="expenses" dataKey="description" styleClass="p-datatable-sm" [paginator]="true" [rows]="5"
-        [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
+        [showCurrentPageReport]="true"  responsiveLayout="stack"
         [globalFilterFields]="['description']">
           <ng-template pTemplate="header">
               <tr>
@@ -26,9 +26,16 @@
                   <td>
                       <button type="button" pButton pRipple [pRowToggler]="expense" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                   </td>
-                  <td>{{expense.description}}</td>
-                  <td>{{expense.user.fullName}}</td>
-                  <td>{{expense.category.description}}</td>
+                  <td>
+                    <span class="p-column-title"><b>Descrição: </b></span>
+                    {{expense.description}}
+                    </td>
+                  <td>
+                    <span class="p-column-title"><b>Responsável: </b></span>
+                    {{expense.user.fullName}}</td>
+                  <td>
+                    <span class="p-column-title"><b>Categoria </b></span>
+                    {{expense.category.description}}</td>
                   <td>
                     <div class="flex align-items-center justify-content-center gap-2">
                         <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialog(expense)"></button>
