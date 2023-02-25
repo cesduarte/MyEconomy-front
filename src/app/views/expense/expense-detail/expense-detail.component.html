@@ -44,11 +44,25 @@
       <div class="row">
         <div class="col-12 col-md-12">
           <label class="form-label">Responsável</label>
-          <select id="inputState" class="form-control" formControlName="userid">
-           <option value="default">--Selecione o usuário--</option>
+          <select id="inputState" class="form-control" formControlName="userid" [ngClass]="cssValidator(f.userid)" required>
+           <option value = null ng-selected="true">-- Selecione o usuário --</option>
             <option *ngFor="let user of users" [ngValue]="user.id">{{user.fullName}}</option>
           </select>
-          <!-- <small id="username2-help" class="p-invalid">O campo data de vencimento é obrigatório.</small> -->
+          <div *ngIf="f.userid.errors?.required" class="invalid-feedback">
+            <small id="username2-help" class="p-invalid">O usuário é obrigatório.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label class="form-label">Categoria</label>
+          <select id="inputState" class="form-control" formControlName="categoryid" [ngClass]="cssValidator(f.categoryid)" required>
+           <option value = null ng-selected="true">-- Selecione a categoria --</option>
+            <option *ngFor="let category of categories" [ngValue]="category.id">{{category.description}}</option>
+          </select>
+          <div *ngIf="f.categoryid.errors?.required" class="invalid-feedback">
+            <small id="username2-help" class="p-invalid">A categoria é obrigatória.</small>
+          </div>
         </div>
       </div>
     </div>

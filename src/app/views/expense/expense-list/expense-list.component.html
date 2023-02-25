@@ -16,6 +16,7 @@
                   <th style="width: 5rem"></th>
                   <th pSortableColumn="name">Descrição<p-sortIcon field="name"></p-sortIcon></th>
                   <th pSortableColumn="name">Responsável<p-sortIcon field="name"></p-sortIcon></th>
+                  <th pSortableColumn="name">Categoria<p-sortIcon field="name"></p-sortIcon></th>
                   <th></th>
 
               </tr>
@@ -27,6 +28,7 @@
                   </td>
                   <td>{{expense.description}}</td>
                   <td>{{expense.user.fullName}}</td>
+                  <td>{{expense.category.description}}</td>
                   <td>
                     <div class="flex align-items-center justify-content-center gap-2">
                         <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialog(expense)"></button>

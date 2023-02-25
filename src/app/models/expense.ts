@@ -1,3 +1,4 @@
+import { Category } from "./category";
 import { ExpenseDetails } from "./expenseDetails";
 import { User } from "./user";
 export interface Expense{
@@ -7,5 +8,6 @@ export interface Expense{
   installments: number
   expenseValue: number
   user: User;
+  category: Category
   expenseDetailsViewModels: ExpenseDetails[];
 }
