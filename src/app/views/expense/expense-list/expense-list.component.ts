@@ -28,9 +28,6 @@ export class ExpenseListComponent implements OnInit {
   constructor(
     private readonly expenseService: ExpenseService,
     private readonly modalService: BsModalService,
-
-
-
   ) { }
 
   async ngOnInit(): Promise<void> {

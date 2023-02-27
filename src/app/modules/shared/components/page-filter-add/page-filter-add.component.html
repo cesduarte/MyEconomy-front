@@ -3,7 +3,7 @@
 
 <p-toolbar [style]="{'background':'white'}">
   <div class="p-toolbar-group-start">
-    <button pButton pRipple label="Cadastrar" icon="pi pi-plus" class="p-button-sm p-button-help" (click)="openDialog()"></button>
+    <button pButton pRipple label="Cadastrar" icon="pi pi-plus" class="p-button-sm p-button-help" *ngIf="displayNew" (click)="openDialog()"></button>
   </div>
 
   <div class="p-toolbar-group-end">

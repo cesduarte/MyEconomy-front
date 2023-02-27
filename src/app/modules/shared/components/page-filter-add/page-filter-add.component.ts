@@ -12,6 +12,8 @@ export class PageFilterAddComponent{
   @Output() applyFilterEmiter = new EventEmitter();
 
   @Input() displayFilter!: boolean
+  @Input() displayNew: boolean = true;
+
   filter!: string;
 
   openDialog() {

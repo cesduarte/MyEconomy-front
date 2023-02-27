@@ -13,6 +13,10 @@ const routes: Routes = [
 },{
   path:'category',
   loadChildren: () => import('./views/category/category.module').then(m => m.CategoryModule)
+},
+{
+  path:'management',
+  loadChildren: () => import('./views/management/management.module').then(m => m.ManagementModule)
 }
 
 ];
