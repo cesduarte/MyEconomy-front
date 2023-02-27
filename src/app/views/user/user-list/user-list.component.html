@@ -9,19 +9,23 @@
       <app-page-filter-add (openDialogEmiter)="openDialog(null)" (applyFilterEmiter)="dt.filterGlobal($event, 'contains')"></app-page-filter-add>
       <div class="card mt-3" >
         <p-table #dt [value]="list" dataKey="fullName" styleClass="p-datatable-sm" [paginator]="true" [rows]="5"
-        [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
+        [showCurrentPageReport]="true" responsiveLayout="stack"
         [globalFilterFields]="['fullName']">
           <ng-template pTemplate="header">
               <tr>
-                  <th pSortableColumn="name">Nome<p-sortIcon field="name"></p-sortIcon></th>
+                  <th pSortableColumn="name">Nome Completo<p-sortIcon field="name"></p-sortIcon></th>
                   <th pSortableColumn="name">Email<p-sortIcon field="name"></p-sortIcon></th>
                   <th></th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-user let-expanded="expanded">
               <tr>
-                  <td>{{user.fullName}}</td>
-                  <td>{{user.email}}</td>
+                  <td>
+                    <span class="p-column-title"><b>Nome Completo: </b></span>
+                    {{user.fullName}}</td>
+                  <td>
+                    <span class="p-column-title"><b>E-mail: </b></span>
+                    {{user.email}}</td>
                   <td>
                     <div class="flex align-items-center justify-content-center gap-2">
                         <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialog(user)"></button>

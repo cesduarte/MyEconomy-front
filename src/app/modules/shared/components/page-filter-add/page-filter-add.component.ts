@@ -21,6 +21,8 @@ export class PageFilterAddComponent{
     this.openDialogSearchEmiter.emit();
   }
   applyFilter(){
+    console.log(this.filter)
     this.applyFilterEmiter.emit(this.filter);
+
   }
 }

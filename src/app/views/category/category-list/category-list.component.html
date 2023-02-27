@@ -9,8 +9,8 @@
       <app-page-filter-add (openDialogEmiter)="openDialog(null)" (applyFilterEmiter)="dt.filterGlobal($event, 'contains')"></app-page-filter-add>
       <div class="card mt-3" >
         <p-table #dt [value]="list" dataKey="description" styleClass="p-datatable-sm" [paginator]="true" [rows]="5"
-        [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
-        [globalFilterFields]="['description']">
+        [showCurrentPageReport]="true" responsiveLayout="stack"
+        [globalFilterFields]="['description']" >
           <ng-template pTemplate="header">
               <tr>
                   <th pSortableColumn="name">Descrição<p-sortIcon field="name"></p-sortIcon></th>
@@ -19,7 +19,9 @@
           </ng-template>
           <ng-template pTemplate="body" let-category let-expanded="expanded">
               <tr>
-                  <td>{{category.description}}</td>
+                  <td>
+                    <span class="p-column-title"><b>Descrição: </b></span>
+                    {{category.description}}</td>
                   <td>
                     <div class="flex align-items-center justify-content-center gap-2">
                         <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="openDialog(category)"></button>

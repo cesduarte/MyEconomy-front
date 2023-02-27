@@ -50,4 +50,11 @@ export const MENU_ITEMS: IMenuItem[] =[
 		icon: "list",
 		link: "/user/profile/",
 	},
+  {
+		key: "gerenciamento",
+		label: "Gerenciamento",
+		isTitle: false,
+		icon: "list",
+		link: "/user/profile/",
+	},
 ]
