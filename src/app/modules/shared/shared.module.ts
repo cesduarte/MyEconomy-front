@@ -31,6 +31,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { defineLocale } from 'ngx-bootstrap/chronos';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+
 
 
 
@@ -63,7 +65,7 @@ defineLocale('pt-br', ptBrLocale);
     InputTextModule,
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
-
+    BreadcrumbModule
 
     ],
   exports:[
@@ -96,7 +98,7 @@ defineLocale('pt-br', ptBrLocale);
     InputTextModule,
     ModalModule,
     BsDatepickerModule,
-
+    BreadcrumbModule,
 
   ]
 })

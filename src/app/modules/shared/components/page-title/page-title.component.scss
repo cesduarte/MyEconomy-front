@@ -1,15 +1,16 @@
-
-.p1{
+.p1 {
   font-size: 20px;
 }
-.p2{
+
+.p2 {
   font-size: 10px;
 }
 
-.pgt-card-header{
-  margin-top: -50px;
-  background-color: #926dde;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
+:host ::ng-deep .p-breadcrumb {
+  background: none;
+  border: none;
+}
+
+.pgt-card-header {
+  background: none;
 }

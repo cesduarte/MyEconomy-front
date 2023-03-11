@@ -1,22 +1,20 @@
+.wrapper.theme_default {
 
+  .navbar {
+    background: linear-gradient(173deg, rgba(16, 16, 70, 1) 11%, rgba(146, 109, 222, 1) 100%);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
-.wrapper.theme_default{
-
-.example-spacer {
-    flex: 1 1 auto;
   }
-.nav{
-    background: var(--nav-bg-color) ;
-    color: var(--nav-color);
-
-
-}
-.nav .logo{
+  .navbar .logo {
     width: 250px;
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-size: 30px;
- }
-}
+    font-size: 25px;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
 
+}

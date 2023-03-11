@@ -1,19 +1,19 @@
-<mat-toolbar color="primary" class="nav">
+<mat-toolbar class="navbar">
   <mat-toolbar-row>
-
-<button  mat-button (click)="alterVisibleMenu()">
-  <mat-icon>menu</mat-icon>
-</button>
-<div class="logo">
-  MyEconomy
- </div>
-<span class="example-spacer"></span>
-<button mat-icon-button color="white" aria-label="Example icon button with a menu icon"[matMenuTriggerFor]="menu" >
-  <mat-icon>person</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>Configurações</button>
-  <button mat-menu-item>Sair</button>
-</mat-menu>
+    <button mat-button (click)="alterVisibleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="logo">MyEconomy</div>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      color="white"
+      aria-label="Example icon button with a menu icon" [matMenuTriggerFor]="menu" >
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Configurações</button>
+      <button mat-menu-item>Sair</button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

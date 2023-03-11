@@ -1,10 +1,10 @@
 
-<mat-toolbar class="md-tall pgt-card-header">
+<mat-toolbar class="pgt-card-header">
   <mat-toolbar-row>
     <span>
-      <h1 class="p1">{{titulo}}</h1>
-      <h1 class="p2">{{subtitulo}}</h1>
+      <h4 class="page-title">{{titulo}}</h4>
     </span>
     <span class="example-spacer"></span>
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
   </mat-toolbar-row>
 </mat-toolbar>

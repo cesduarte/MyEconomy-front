@@ -15,6 +15,18 @@ export class PageTitleComponent{
 
   constructor() { }
 
+  items!: any[];
+
+  home!: any;
+
+  ngOnInit() {
+    this.items = [
+      { label: 'Cadastro' },
+      { label: 'Despesas' },
+    ];
+
+    this.home = { icon: 'pi pi-home' };
+  }
 
 
 }

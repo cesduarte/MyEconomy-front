@@ -1,11 +1,15 @@
-<mat-sidenav-container [hasBackdrop]="'true'" (backdropClick)="close()" autosize>
+<mat-sidenav-container
+  [hasBackdrop]="'true'"
+  (backdropClick)="close()"
+  autosize
+>
   <mat-sidenav
     (keydown.escape)="close()"
     [opened]="getvisibleMenu()"
     mode="over"
     class="sidebar"
     [ngClass]="{ active: true }"
-    >
+  >
     <div class="profile_content">
       <div class="profile">
         <img src="./assets/user.png" alt="" />
@@ -17,28 +21,26 @@
     </div>
     <hr />
     <div class="menu_container">
-      <mat-nav-list class="menu" >
-        <a  *ngFor="let menu of menuItems; let i = index"
+      <mat-nav-list class="menu">
+        <a
+          *ngFor="let menu of menuItems; let i = index"
           mat-list-item
-          routerLink= {{menu.link}}
+          routerLink="{{ menu.link }}"
           [matTooltip]="getvisibleMenu() ? '' : menu.label"
           matTooltipClass="tooltip"
           matTooltipPosition="after"
           (click)="close()"
-
         >
-          <i class="material-icons"> {{menu.icon}} </i>
-          <span class="links_name">{{menu.label}}</span>
+          <i class="material-icons"> {{ menu.icon }} </i>
+          <span class="links_name">{{ menu.label }}</span>
         </a>
-
       </mat-nav-list>
     </div>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content style="background-color:rgb(239, 232, 243)">
     <app-navbar></app-navbar>
     <div class="tee">
       <router-outlet></router-outlet>
     </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>

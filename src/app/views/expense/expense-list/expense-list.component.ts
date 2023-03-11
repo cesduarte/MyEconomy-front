@@ -30,6 +30,10 @@ export class ExpenseListComponent implements OnInit {
     private readonly modalService: BsModalService,
   ) { }
 
+ items!: any[];
+
+
+
   async ngOnInit(): Promise<void> {
 
     await this.loadExpenses();
@@ -37,6 +41,10 @@ export class ExpenseListComponent implements OnInit {
     this.expenseService.updateExpense.subscribe(async (Expense) => {
       this.loadExpenses();
     });
+    this.items = [
+      {label:'Categories'},
+      {label:'Sports'},
+  ];
   }
 
 
