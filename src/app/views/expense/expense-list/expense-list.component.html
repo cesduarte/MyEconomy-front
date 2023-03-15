@@ -1,6 +1,6 @@
 <app-page-title [titulo]="'Lista de despesas'"></app-page-title>
 <app-page-filter-add (openDialogEmiter)="openDialog(null)" (applyFilterEmiter)="dt.filterGlobal($event, 'contains')"></app-page-filter-add>
-<div class="card">
+<div class="card shadow bg-white rounded">
   <div class="card-body">
 
 <p-table #dt [value]="expenses" dataKey="description" styleClass="p-datatable-gridlines" [paginator]="true" [rows]="5"

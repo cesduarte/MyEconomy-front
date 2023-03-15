@@ -1,65 +1,33 @@
-
-    <app-page-title
-      [titulo]="'Gerenciar despesas'"
-      [subtitulo]="'Gerenciar despesas'"
-    ></app-page-title>
-
-      <app-page-filter-add [displayNew]="false"></app-page-filter-add>
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4" *ngFor="let expense of expenses">
-                  <div class="card h-100 mb-4 box-shadow">
-                    <div class="card-header">{{expense.description}}</div>
-                    <div class="card-body">
-                      <p >Responsável: {{expense.user.fullName}}</p>
-                       <p >Categoria: {{expense.category.description}}</p>
-                      <p class="card-text">
-                        <p-table [value]="expense.expenseDetailsViewModels" styleClass="p-datatable-sm p-datatable-gridlines"  [responsive]="true" [scrollable]="true" scrollHeight="250px">
-                          <ng-template pTemplate="header">
-                              <tr>
-                                  <th>Data de vencimento</th>
-                                  <th>Valor</th>
-                                  <th>Status</th>
-                                  <th></th>
-                              </tr>
-                          </ng-template>
-                          <ng-template pTemplate="body" let-detail>
-                              <tr>
-                                  <td>{{detail.dueDay | DateFormatPipe}}</td>
-                                  <td>{{detail.expenseValue | currency:'R$ '}}</td>
-                                  <td>A Pagar</td>
-                                  <td><div class="flex align-items-center justify-content-center gap-2">
-                                    <button  pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" ></button>
-                                </div></td>
-                              </tr>
-                          </ng-template>
-                      </p-table>
-                      </p>
-                    </div>
-                    <div class="card-footer"> <div
-                      class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary">
-                          View
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-sm btn-outline-secondary">
-                          Edit
-                        </button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
-                    </div></div>
-                  </div>
+<app-page-title [titulo]="'Gerenciar despesas'"></app-page-title>
+<app-page-filter-add [displayNew]="false"></app-page-filter-add>
+<div class="card shadow bg-white rounded">
+  <div class="card-body">
+    <p-table [value]="expenses" dataKey="description" styleClass="p-datatable-gridlines" responsiveLayout="stack">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Descrição</th>
+          <th>Data vencimento</th>
+          <th>Valor</th>
+          <th>Status</th>
+        </tr>
+    </ng-template>
+      <ng-template pTemplate="body" let-expense>
+          <tr>
+              <td style="font-size: 15px;">
+                <div class="col" >
+                  <span><b>Descrição: </b></span>
+                  {{expense.description}}
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+                  <div class="w-100"></div>
+                  <div class="col"><b>Responsável: </b>{{expense.user.fullName}}</div>
+                  <div class="w-100"></div>
+                  <div class="col"><b>Categoria: </b>{{expense.category.description}}</div>
+              </td>
+              <td>{{ expense.expenseDetailsViewModels[0].dueDay | DateFormatPipe }}</td>
+              <td>{{ expense.expenseDetailsViewModels[0].expenseValue | currency : "R$ " }}</td>
+              <td>A Pagar</td>
+          </tr>
+      </ng-template>
+      </p-table>
+  </div>
+</div>

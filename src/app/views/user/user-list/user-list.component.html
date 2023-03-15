@@ -3,7 +3,7 @@
   (openDialogEmiter)="openDialog(null)"
   (applyFilterEmiter)="dt.filterGlobal($event, 'contains')"
 ></app-page-filter-add>
-<div class="card">
+<div class="card shadow bg-white rounded">
   <div class="card-body">
     <p-table
       #dt
@@ -14,7 +14,8 @@
       [rows]="5"
       [showCurrentPageReport]="true"
       responsiveLayout="stack"
-      [globalFilterFields]="['description']" >
+      [globalFilterFields]="['description']"
+    >
       <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="name">
@@ -60,3 +61,4 @@
       </ng-template>
     </p-table>
   </div>
+</div>

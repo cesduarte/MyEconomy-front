@@ -1,18 +1,42 @@
-
-
-<p-toolbar styleClass="mb-1 gap-2" [style]="{'background':'white'}">
-  <ng-template pTemplate="left">
-    <!-- <input type="text" pInputText placeholder="Buscar..." [(ngModel)]="filter" class="p-inputtext-sm"> -->
-    <div class="flex align-items-center justify-content-between">
-      <span class="p-input-icon-left">
+<div class="shadow bg-white rounded">
+  <p-toolbar
+    styleClass="mb-1 gap-2"
+    [style]="{ background: 'white' }"
+  >
+    <ng-template pTemplate="left">
+      <!-- <input type="text" pInputText placeholder="Buscar..." [(ngModel)]="filter" class="p-inputtext-sm"> -->
+      <div class="flex align-items-center justify-content-between">
+        <span class="p-input-icon-left">
           <i class="pi pi-search"></i>
-          <input pInputText type="text"  placeholder="Search..." class="p-inputtext-sm" />
-      </span>
-  </div>
-  </ng-template>
-  <ng-template pTemplate="right">
-    <button pButton pRipple label="Cadastrar" icon="pi pi-plus" class="p-button-sm p-button-help mr-2" *ngIf="displayNew" (click)="openDialog()"></button>
-    <button pButton pRipple icon="pi pi-list" class="p-button-sm p-button-information mr-2" (click)="menu.toggle($event)"></button>
-    <p-menu #menu [popup]="true" [model]="items"></p-menu>
-  </ng-template>
-</p-toolbar>
+          <input
+            pInputText
+            type="text"
+            placeholder="Buscar..."
+            class="p-inputtext-sm"
+            [(ngModel)]="filter"
+            (change)="applyFilter()"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="right">
+      <button
+        pButton
+        pRipple
+        label="Cadastrar"
+        icon="pi pi-plus"
+        class="p-button-sm p-button-help mr-2"
+        *ngIf="displayNew"
+        (click)="openDialog()"
+      ></button>
+      <button
+        pButton
+        pRipple
+        icon="pi pi-list"
+        class="p-button-sm p-button-information mr-2"
+        (click)="menu.toggle($event)"
+      ></button>
+      <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </ng-template>
+  </p-toolbar>
+</div>
