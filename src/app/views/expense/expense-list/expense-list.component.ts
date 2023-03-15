@@ -10,6 +10,7 @@ import { Expense } from 'src/app/models/expense';
 import { ExpenseService } from 'src/app/services/expense.service';
 
 import Swal from 'sweetalert2';
+import { ExpenseDetailTableComponent } from '../expense-detail-table/expense-detail-table.component';
 
 import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
 
@@ -30,7 +31,7 @@ export class ExpenseListComponent implements OnInit {
     private readonly modalService: BsModalService,
   ) { }
 
- items!: any[];
+  items!: any[];
 
 
 
@@ -42,9 +43,9 @@ export class ExpenseListComponent implements OnInit {
       this.loadExpenses();
     });
     this.items = [
-      {label:'Categories'},
-      {label:'Sports'},
-  ];
+      { label: 'Categories' },
+      { label: 'Sports' },
+    ];
   }
 
 
@@ -70,14 +71,11 @@ export class ExpenseListComponent implements OnInit {
     };
 
     this.bsModalRef = this.modalService.show(ExpenseDetailComponent,
-      // {
-      //   class: 'mymodal-dialog-lg modal-dialog-centered',
-      // },
       initialState
     );
-    // if (obj) this.bsModalRef.componentInstance.expense = obj;
+
   }
- delete(expense: Expense) {
+  delete(expense: Expense) {
     Swal.fire({
       icon: 'warning',
       title: 'Tem certeza que deseja deletar?',
@@ -93,13 +91,24 @@ export class ExpenseListComponent implements OnInit {
         catch (error) {
           console.error('enviaForm', error);
         }
-        finally{
+        finally {
           this.expenseService.updateExpense.emit(expense ? expense : true);
         }
       }
     })
+  }
 
+  detail(expense: Expense){
+    const initialState: ModalOptions = {
+      initialState: {
+        details: expense.expenseDetailsViewModels
+      },
+      class: 'mymodal-dialog-lg modal-dialog-centered'
+    };
 
+    this.bsModalRef = this.modalService.show(ExpenseDetailTableComponent,
+      initialState
+    );
   }
 
 

@@ -1,5 +1,10 @@
-<div *ngIf="details.length > 0">
-  <p-table [value]="details" styleClass="p-datatable-gridlines"  [responsive]="true" [scrollable]="true" scrollHeight="250px">
+
+<div class="modal-header my-header">
+  <h4 class="modal-title">Detalhes das despesas</h4>
+  <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-help" (click)="bsModalRef.hide()"></button>
+</div>
+<div class="modal-body">
+  <p-table [value]="details" styleClass=" p-datatable-gridlines"  [responsive]="true" [scrollable]="true" scrollHeight="350px">
     <ng-template pTemplate="header">
         <tr>
             <th>Data de vencimento</th>
@@ -12,9 +17,5 @@
             <td>{{detail.expenseValue | currency:'R$ '}}</td>
         </tr>
     </ng-template>
-    <ng-template pTemplate="summary">
-      <span>Quantidade de parcelas: {{this.details.length}}</span> |
-      <span>Valor total: {{ getexpenseValue() | currency:'R$ '}}</span>
-    </ng-template>
-</p-table>
+  </p-table>
 </div>

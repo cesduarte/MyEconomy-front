@@ -43,6 +43,12 @@ body{
 background-color: var(--default-color)  !important;
 }
 
+:host ::ng-deep {
+  .p-datatable .p-datatable-thead>tr>th {
+    background-color: white;
+  }
+}
+
 
 .content{
   padding-left: 45px;
