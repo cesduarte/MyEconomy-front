@@ -2,32 +2,56 @@
 <app-page-filter-add [displayNew]="false"></app-page-filter-add>
 <div class="card shadow bg-white rounded">
   <div class="card-body">
-    <p-table [value]="expenses" dataKey="description" styleClass="p-datatable-gridlines" responsiveLayout="stack">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Descrição</th>
-          <th>Data vencimento</th>
-          <th>Valor</th>
-          <th>Status</th>
-        </tr>
-    </ng-template>
+    <p-table [value]="expenses" responsiveLayout="stack" styleClass="p-datatable-sm">
       <ng-template pTemplate="body" let-expense>
           <tr>
-              <td style="font-size: 15px;">
-                <div class="col" >
-                  <span><b>Descrição: </b></span>
-                  {{expense.description}}
-                </div>
-                  <div class="w-100"></div>
-                  <div class="col"><b>Responsável: </b>{{expense.user.fullName}}</div>
-                  <div class="w-100"></div>
-                  <div class="col"><b>Categoria: </b>{{expense.category.description}}</div>
-              </td>
-              <td>{{ expense.expenseDetailsViewModels[0].dueDay | DateFormatPipe }}</td>
-              <td>{{ expense.expenseDetailsViewModels[0].expenseValue | currency : "R$ " }}</td>
-              <td>A Pagar</td>
+            <td class="col-3">
+              <h5 class="card-title">{{expense.description}}</h5>
+              <div>
+                <small class="text-muted">
+                  <b>Responsável: </b>
+                {{expense.user.fullName}}
+                </small>
+              </div>
+              <div>
+                <small class="text-muted">
+                  <b>Categoria: </b>
+                  {{expense.category.description}}
+                </small>
+              </div>
+            </td>
+            <td class="col-9">
+              <div class="card shadow-sm p-3 bg-white rounded">
+                <div class="card-body">
+                <p-table [value]="expense.expenseDetailsViewModels" styleClass="p-datatable-sm">
+                  <ng-template pTemplate="header">
+                      <tr>
+                          <th>Data de vencimento</th>
+                          <th>Valor</th>
+                          <th>Status</th>
+                          <th></th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-detail>
+                      <tr>
+                        <td style="flex: 0 0 15rem">
+                          {{ detail.dueDay  | DateFormatPipe }}
+                        </td>
+                        <td style="flex: 0 0 10rem">
+                          {{ detail.expenseValue | currency : "R$ " }}
+                        </td>
+                        <td style="flex: 0 0 15rem">
+                          <p-tag icon="pi pi-user" value="Pago"></p-tag>
+                        </td>
+                        <td></td>
+                      </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+              </div>
+            </td>
           </tr>
       </ng-template>
-      </p-table>
+  </p-table>
   </div>
 </div>

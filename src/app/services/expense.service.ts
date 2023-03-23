@@ -18,6 +18,15 @@ export class ExpenseService {
   get(): Promise<Expense[]> {
 		return firstValueFrom(this.http.get<Expense[]>(this.baseURL));
 	}
+  getByRange(): Promise<Expense[]> {
+		return firstValueFrom(this.http.get<Expense[]>(this.baseURL + "/range",{
+
+      params:{
+        'startDate':'2023-03-01',
+        'finalDate':'2023-03-28',
+      }
+    }));
+	}
   save(data: Expense,id?: number): Promise<any> {
 
     if (id){

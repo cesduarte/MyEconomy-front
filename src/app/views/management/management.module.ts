@@ -11,6 +11,7 @@ import { ManagementListComponent } from './management-list/management-list.compo
   declarations: [
     ManagementComponent,
     ManagementListComponent
+
   ],
   imports: [
     CommonModule,

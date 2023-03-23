@@ -34,6 +34,9 @@ import { defineLocale } from 'ngx-bootstrap/chronos';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { MenuModule } from 'primeng/menu';
 import { RippleModule } from 'primeng/ripple';
+import { DividerModule } from 'primeng/divider';
+import { TagModule } from 'primeng/tag';
+import { FieldsetModule } from 'primeng/fieldset';
 
 
 
@@ -68,7 +71,10 @@ defineLocale('pt-br', ptBrLocale);
     BsDatepickerModule.forRoot(),
     BreadcrumbModule,
     MenuModule,
-    RippleModule
+    RippleModule,
+    TagModule,
+    DividerModule,
+    FieldsetModule
 
     ],
   exports:[
@@ -91,7 +97,7 @@ defineLocale('pt-br', ptBrLocale);
     FormsModule,
     ReactiveFormsModule,
     SpinnerComponent,
-
+    FieldsetModule,
     DatetimeFormatPipe,
     TableModule,
     ButtonModule,
@@ -103,7 +109,9 @@ defineLocale('pt-br', ptBrLocale);
     BsDatepickerModule,
     BreadcrumbModule,
     MenuModule,
-    RippleModule
+    RippleModule,
+    TagModule,
+    DividerModule
 
   ]
 })

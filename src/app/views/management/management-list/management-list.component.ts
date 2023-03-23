@@ -29,7 +29,7 @@ export class ManagementListComponent implements OnInit {
 
   async loadExpenses(): Promise<void> {
     try {
-      this.expenses = await this.expenseService.get();
+      this.expenses = await this.expenseService.getByRange();
 
       console.log(this.expenses)
     } catch (error) {
