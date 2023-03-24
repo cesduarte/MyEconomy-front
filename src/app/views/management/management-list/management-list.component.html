@@ -3,7 +3,7 @@
 <div class="card shadow bg-white rounded">
   <div class="card-body">
     <p-table [value]="expenses" responsiveLayout="stack" styleClass="p-datatable-sm">
-      <ng-template pTemplate="body" let-expense>
+       <ng-template pTemplate="body" let-expense>
           <tr>
             <td class="col-3">
               <h5 class="card-title">{{expense.description}}</h5>
@@ -41,7 +41,9 @@
                           {{ detail.expenseValue | currency : "R$ " }}
                         </td>
                         <td style="flex: 0 0 15rem">
-                          <p-tag icon="pi pi-user" value="Pago"></p-tag>
+                          <p-tag icon="pi pi-lock-open" severity="warning"
+                          value="{{getTextStatus(detail.status)}}">
+                          </p-tag>
                         </td>
                         <td></td>
                       </tr>

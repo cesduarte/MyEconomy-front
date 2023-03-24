@@ -37,6 +37,8 @@ import { RippleModule } from 'primeng/ripple';
 import { DividerModule } from 'primeng/divider';
 import { TagModule } from 'primeng/tag';
 import { FieldsetModule } from 'primeng/fieldset';
+import { ChipModule } from 'primeng/chip';
+import { ChipsModule } from 'primeng/chips';
 
 
 
@@ -74,7 +76,9 @@ defineLocale('pt-br', ptBrLocale);
     RippleModule,
     TagModule,
     DividerModule,
-    FieldsetModule
+    FieldsetModule,
+    ChipModule,
+    ChipsModule
 
     ],
   exports:[
@@ -111,8 +115,9 @@ defineLocale('pt-br', ptBrLocale);
     MenuModule,
     RippleModule,
     TagModule,
-    DividerModule
-
+    DividerModule,
+    ChipModule,
+    ChipsModule
   ]
 })
 export class SharedModule { }

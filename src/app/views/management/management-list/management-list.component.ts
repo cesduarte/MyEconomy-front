@@ -10,7 +10,7 @@ import { ExpenseService } from 'src/app/services/expense.service';
 })
 export class ManagementListComponent implements OnInit {
 
-  expenses:  Expense[] = []
+  expenses: Expense[] = []
   details: ExpenseDetails[] = [];
 
 
@@ -40,10 +40,19 @@ export class ManagementListComponent implements OnInit {
 
     }
   }
-  getexpenseValue(): number{
+  getexpenseValue(): number {
     var total = this.details.reduce((accumulator, object) => {
       return accumulator + object.expenseValue;
     }, 0);
     return total;
+  }
+  getTextStatus(status: number): string {
+    if (status == 1) {
+      return "A pagar"
+    }
+    else if( status == 2){
+      return "Pago"
+    }
+    return "";
   }
 }
