@@ -45,7 +45,7 @@
         <div class="col-12 col-md-12">
           <label class="form-label">Responsável</label>
           <select id="inputState" class="form-control" formControlName="userid" [ngClass]="cssValidator(f.userid)" required>
-           <option value = null ng-selected="true">-- Selecione o usuário --</option>
+           <option value = null ng-selected="true">-- Selecione o responsável --</option>
             <option *ngFor="let user of users" [ngValue]="user.id">{{user.fullName}}</option>
           </select>
           <div *ngIf="f.userid.errors?.required" class="invalid-feedback">

@@ -39,6 +39,7 @@ import { TagModule } from 'primeng/tag';
 import { FieldsetModule } from 'primeng/fieldset';
 import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
+import { BadgeModule } from 'primeng/badge';
 
 
 
@@ -78,7 +79,8 @@ defineLocale('pt-br', ptBrLocale);
     DividerModule,
     FieldsetModule,
     ChipModule,
-    ChipsModule
+    ChipsModule,
+    BadgeModule
 
     ],
   exports:[
@@ -117,7 +119,8 @@ defineLocale('pt-br', ptBrLocale);
     TagModule,
     DividerModule,
     ChipModule,
-    ChipsModule
+    ChipsModule,
+    BadgeModule
   ]
 })
 export class SharedModule { }

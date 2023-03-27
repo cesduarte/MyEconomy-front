@@ -1,8 +1,14 @@
 <app-page-title [titulo]="'Gerenciar despesas'"></app-page-title>
-<app-page-filter-add [displayNew]="false"></app-page-filter-add>
+<app-page-filter-add [displayNew]="false" (openDialogSearchEmiter)="openDialog()"></app-page-filter-add>
 <div class="card shadow bg-white rounded">
   <div class="card-body">
     <p-table [value]="expenses" responsiveLayout="stack" styleClass="p-datatable-sm">
+      <ng-template pTemplate="header">
+        <tr>
+            <th>Despesas</th>
+            <th></th>
+        </tr>
+      </ng-template>
        <ng-template pTemplate="body" let-expense>
           <tr>
             <td class="col-3">
