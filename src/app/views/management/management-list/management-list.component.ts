@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Expense } from 'src/app/models/expense';
 import { ExpenseDetails } from 'src/app/models/expenseDetails';
+import { ExpenseFilters } from 'src/app/models/expenseFilter';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { ManagementFiltersComponent } from '../management-filters/management-filters.component';
 
@@ -15,13 +16,13 @@ export class ManagementListComponent implements OnInit {
   expenses: Expense[] = []
   details: ExpenseDetails[] = [];
   bsModalRef?: BsModalRef
-
+  filter!: ExpenseFilters
 
 
   constructor(
     private readonly expenseService: ExpenseService,
     private readonly modalService: BsModalService
-    ) {
+  ) {
 
   }
 
@@ -33,9 +34,10 @@ export class ManagementListComponent implements OnInit {
     });
   }
 
-  async loadExpenses(): Promise<void> {
+  async loadExpenses(filter?: any): Promise<void> {
     try {
-      this.expenses = await this.expenseService.getByRange();
+
+      this.expenses = await this.expenseService.getByFilters(filter);
 
       console.log(this.expenses)
     } catch (error) {
@@ -71,6 +73,13 @@ export class ManagementListComponent implements OnInit {
     this.bsModalRef = this.modalService.show(ManagementFiltersComponent,
       initialState
     );
+    this.bsModalRef.content.onClose.subscribe((result: any) => {
+      this.filter = { ...result.value }
+      this.loadExpenses(this.filter)
+    })
+  }
+  applyfilter(filter: any) {
 
   }
+
 }

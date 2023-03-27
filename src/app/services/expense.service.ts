@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Expense } from '../models/expense';
+import * as QueryString from 'qs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,12 @@ export class ExpenseService {
   get(): Promise<Expense[]> {
 		return firstValueFrom(this.http.get<Expense[]>(this.baseURL));
 	}
-  getByRange(): Promise<Expense[]> {
-		return firstValueFrom(this.http.get<Expense[]>(this.baseURL + "/range",{
+  getByFilters(filters?: any): Promise<Expense[]> {
 
+    return firstValueFrom(this.http.get<Expense[]>(this.baseURL + "/range",{
       params:{
-        'startDate':'2023-03-01',
-        'finalDate':'2023-03-28',
+        'startDate':filters.startDate,
+        'finalDate':filters.finalDate,
       }
     }));
 	}
