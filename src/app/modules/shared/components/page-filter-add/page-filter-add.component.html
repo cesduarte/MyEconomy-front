@@ -1,42 +1,14 @@
 
 <div class="shadow bg-white rounded">
-  <p-toolbar
-    styleClass="mb-1 gap-2"
-    [style]="{ background: 'white' }"
-  >
-    <ng-template pTemplate="left">
-      <div class="flex align-items-center justify-content-between">
-        <span class="p-input-icon-left">
-          <i class="pi pi-search"></i>
-          <input
-            pInputText
-            type="text"
-            placeholder="Buscar..."
-            class="p-inputtext-sm"
-            [(ngModel)]="filter"
-            (change)="applyFilter()"
-          />
-        </span>
-      </div>
-    </ng-template>
-    <ng-template pTemplate="right">
-      <button
-        pButton
-        pRipple
-        label="Cadastrar"
-        icon="pi pi-plus"
-        class="p-button-sm p-button-help mr-2"
-        *ngIf="displayNew"
-        (click)="openDialog()"
-      ></button>
-      <button
-        pButton
-        pRipple
-        icon="pi pi-list"
-        class="p-button-sm p-button-information mr-2"
-        (click)="menu.toggle($event)"
-      ></button>
+  <p-toolbar styleClass="mb-1 gap-2" [style]="{ background: 'white' }">
+    <div class="p-toolbar-group-start">
+        <p-button  label="Cadastrar"
+        icon="pi pi-plus" class="mr-2" styleClass="p-button-help" *ngIf="displayNew" (click)="openDialog()"></p-button>
+    </div>
+    <div class="p-toolbar-group-end">
+      <p-button icon="pi pi-search" class="mr-2" (click)="openDialogSearch()"></p-button>
+      <p-button icon="pi pi-list" class="mr-2" styleClass="p-button-secondary p-button-text"(click)="menu.toggle($event)"></p-button>
       <p-menu #menu [popup]="true" [model]="items"></p-menu>
-    </ng-template>
+    </div>
   </p-toolbar>
-</div>
+  </div>
