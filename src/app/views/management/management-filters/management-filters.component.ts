@@ -37,6 +37,7 @@ export class ManagementFiltersComponent {
   }
 
   async ngOnInit(): Promise<void> {
+
     this.onClose = new Subject();
 
     await this.startForm();
@@ -48,9 +49,9 @@ export class ManagementFiltersComponent {
   async startForm() {
     this.form = this.formBuilder.group({
       startDate: [this.filter?.startDate],
-      finalDate: [this.filter?.FinalDate],
-      categoryId: [this.filter?.category],
-      userId: [this.filter?.user],
+      lastDate: [this.filter?.lastDate],
+      categoryId: [this.filter?.categoryId],
+      userId: [this.filter?.userId],
     });
   }
 

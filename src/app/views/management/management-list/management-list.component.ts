@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import * as moment from 'moment';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Expense } from 'src/app/models/expense';
 import { ExpenseDetails } from 'src/app/models/expenseDetails';
@@ -16,8 +17,7 @@ export class ManagementListComponent implements OnInit {
   expenses: Expense[] = []
   details: ExpenseDetails[] = [];
   bsModalRef?: BsModalRef
-  filter!: ExpenseFilters
-
+  filter = {} as ExpenseFilters
 
   constructor(
     private readonly expenseService: ExpenseService,
@@ -27,19 +27,29 @@ export class ManagementListComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    await this.loadExpenses();
+
+    var date = new Date();
+    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+    this.filter.startDate = moment(firstDay).format('YYYY-MM-DD');
+    this.filter.lastDate = moment(lastDay).format('YYYY-MM-DD');
+
+    await this.loadExpenses(this.filter);
 
     this.expenseService.updateExpense.subscribe(async (Expense) => {
       this.loadExpenses();
     });
   }
-
   async loadExpenses(filter?: any): Promise<void> {
     try {
-
       this.expenses = await this.expenseService.getByFilters(filter);
-
-      console.log(this.expenses)
+      if(this.filter?.userId > 0){
+        this.expenses = this.expenses.filter(e => e.user.id == this.filter.userId)
+      }
+      if(this.filter?.categoryId > 0){
+        this.expenses = this.expenses.filter(e => e.category.id == this.filter.categoryId)
+      }
     } catch (error) {
 
       console.log(error)
@@ -66,6 +76,7 @@ export class ManagementListComponent implements OnInit {
   openDialog() {
     const initialState: ModalOptions = {
       initialState: {
+        filter: this.filter
       },
       class: 'mymodal-dialog-lg modal-dialog-centered'
     };
@@ -77,9 +88,6 @@ export class ManagementListComponent implements OnInit {
       this.filter = { ...result.value }
       this.loadExpenses(this.filter)
     })
-  }
-  applyfilter(filter: any) {
-
   }
 
 }

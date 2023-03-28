@@ -24,7 +24,7 @@ export class ExpenseService {
     return firstValueFrom(this.http.get<Expense[]>(this.baseURL + "/range",{
       params:{
         'startDate':filters.startDate,
-        'finalDate':filters.finalDate,
+        'finalDate':filters.lastDate,
       }
     }));
 	}
