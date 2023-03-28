@@ -40,6 +40,8 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
 import { BadgeModule } from 'primeng/badge';
+import { ExpenseStatusComponent } from './components/expense-status/expense-status.component';
+import { ExpenseManagementButtonsComponent } from './components/expense-management-buttons/expense-management-buttons.component';
 
 
 
@@ -50,6 +52,8 @@ defineLocale('pt-br', ptBrLocale);
     PageFilterAddComponent,
     SpinnerComponent,
     DatetimeFormatPipe,
+    ExpenseStatusComponent,
+    ExpenseManagementButtonsComponent,
 
   ],
   imports: [
@@ -80,7 +84,7 @@ defineLocale('pt-br', ptBrLocale);
     FieldsetModule,
     ChipModule,
     ChipsModule,
-    BadgeModule
+    BadgeModule,
 
     ],
   exports:[
@@ -120,7 +124,9 @@ defineLocale('pt-br', ptBrLocale);
     DividerModule,
     ChipModule,
     ChipsModule,
-    BadgeModule
+    BadgeModule,
+    ExpenseStatusComponent,
+    ExpenseManagementButtonsComponent
   ]
 })
 export class SharedModule { }

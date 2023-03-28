@@ -40,18 +40,18 @@
                   </ng-template>
                   <ng-template pTemplate="body" let-detail>
                       <tr>
-                        <td style="flex: 0 0 15rem">
+                        <td class="col-6">
                           {{ detail.dueDay  | DateFormatPipe }}
                         </td>
-                        <td style="flex: 0 0 10rem">
+                        <td class="col-4">
                           {{ detail.expenseValue | currency : "R$ " }}
                         </td>
-                        <td style="flex: 0 0 15rem">
-                          <p-tag icon="pi pi-lock-open" severity="warning"
-                          value="{{getTextStatus(detail.status)}}">
-                          </p-tag>
+                        <td class="col-4">
+                         <app-expense-status [status]="detail.status"></app-expense-status>
                         </td>
-                        <td></td>
+                        <td class="col-4">
+                          <app-expense-management-buttons [status]="detail.status"></app-expense-management-buttons>
+                        </td>
                       </tr>
                   </ng-template>
                 </p-table>

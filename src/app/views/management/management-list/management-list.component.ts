@@ -4,7 +4,9 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Expense } from 'src/app/models/expense';
 import { ExpenseDetails } from 'src/app/models/expenseDetails';
 import { ExpenseFilters } from 'src/app/models/expenseFilter';
+import { ExpenseDetailService } from 'src/app/services/expense-detail.service';
 import { ExpenseService } from 'src/app/services/expense.service';
+import Swal from 'sweetalert2';
 import { ManagementFiltersComponent } from '../management-filters/management-filters.component';
 
 @Component({
@@ -21,7 +23,8 @@ export class ManagementListComponent implements OnInit {
 
   constructor(
     private readonly expenseService: ExpenseService,
-    private readonly modalService: BsModalService
+    private readonly modalService: BsModalService,
+    private readonly expenseDtService: ExpenseDetailService
   ) {
 
   }
@@ -44,14 +47,13 @@ export class ManagementListComponent implements OnInit {
   async loadExpenses(filter?: any): Promise<void> {
     try {
       this.expenses = await this.expenseService.getByFilters(filter);
-      if(this.filter?.userId > 0){
+      if (this.filter?.userId > 0) {
         this.expenses = this.expenses.filter(e => e.user.id == this.filter.userId)
       }
-      if(this.filter?.categoryId > 0){
+      if (this.filter?.categoryId > 0) {
         this.expenses = this.expenses.filter(e => e.category.id == this.filter.categoryId)
       }
     } catch (error) {
-
       console.log(error)
     }
     finally {
@@ -87,6 +89,27 @@ export class ManagementListComponent implements OnInit {
     this.bsModalRef.content.onClose.subscribe((result: any) => {
       this.filter = { ...result.value }
       this.loadExpenses(this.filter)
+    })
+  }
+  payExpense(expense: Expense){
+    Swal.fire({
+      icon: 'warning',
+      title: 'Tem certeza que deseja pagar está despesa?',
+      confirmButtonText: 'Sim',
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        try {
+          this.expenseDtService.Pay(expense.id)
+          Swal.fire('Despesa paga com sucesso!', '', 'success')
+        }
+        catch (error) {
+          console.error('enviaForm', error);
+        }
+        finally {
+          this.expenseService.updateExpense.emit(expense ? expense : true);
+        }
+      }
     })
   }
 
