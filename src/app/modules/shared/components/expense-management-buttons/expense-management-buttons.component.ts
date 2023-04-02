@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-expense-management-buttons',
@@ -8,4 +8,10 @@ import { Component, Input } from '@angular/core';
 export class ExpenseManagementButtonsComponent {
 
   @Input() status: any;
+
+  @Output() payEmiter = new EventEmitter();
+
+  payExpense() {
+    this.payEmiter.emit();
+  }
 }

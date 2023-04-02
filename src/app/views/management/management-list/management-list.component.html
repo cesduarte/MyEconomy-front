@@ -27,35 +27,34 @@
               </div>
             </td>
             <td class="col-9">
-              <div class="card shadow-sm p-3 bg-white rounded">
+              <div class="card">
                 <div class="card-body">
-                <p-table [value]="expense.expenseDetailsViewModels" styleClass="p-datatable-sm">
-                  <ng-template pTemplate="header">
-                      <tr>
-                          <th>Data de vencimento</th>
-                          <th>Valor</th>
-                          <th>Status</th>
-                          <th></th>
-                      </tr>
-                  </ng-template>
-                  <ng-template pTemplate="body" let-detail>
-                      <tr>
-                        <td class="col-6">
-                          {{ detail.dueDay  | DateFormatPipe }}
-                        </td>
-                        <td class="col-4">
-                          {{ detail.expenseValue | currency : "R$ " }}
-                        </td>
-                        <td class="col-4">
-                         <app-expense-status [status]="detail.status"></app-expense-status>
-                        </td>
-                        <td class="col-4">
-                          <app-expense-management-buttons [status]="detail.status"></app-expense-management-buttons>
-                        </td>
-                      </tr>
-                  </ng-template>
-                </p-table>
-              </div>
+                  <p-table [value]="expense.expenseDetailsViewModels" responsiveLayout="stack" styleClass="p-datatable-sm">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Data de vencimento</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-detail>
+                        <tr>
+                          <td class="col-5">
+                            <span class="p-column-title"><b>Data de vencimento: </b></span>
+                            {{ detail.dueDay  | DateFormatPipe }}
+                          </td>
+                          <td class="col-4">
+                            <span class="p-column-title"><b>Valor: </b></span>
+                            {{ detail.expenseValue | currency : "R$ " }}
+                          </td>
+                          <td class="col-5">
+                            <span class="p-column-title"><b>Status: </b></span>
+                           <app-expense-status [status]="detail.status" (payEmiter)="putExpenseDetail(detail)"></app-expense-status>
+                          </td>
+                        </tr>
+                    </ng-template>
+                  </p-table>
+                </div>
               </div>
             </td>
           </tr>

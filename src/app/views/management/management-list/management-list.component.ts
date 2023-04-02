@@ -91,23 +91,58 @@ export class ManagementListComponent implements OnInit {
       this.loadExpenses(this.filter)
     })
   }
-  payExpense(expense: Expense){
+
+  putExpenseDetail(detail: ExpenseDetails) {
+    if (detail.status == 1) {
+      this.payExpense(detail)
+    }
+    else if (detail.status == 2) {
+      this.openExpense(detail)
+    }
+  }
+  payExpense(detail: ExpenseDetails) {
+
     Swal.fire({
-      icon: 'warning',
       title: 'Tem certeza que deseja pagar está despesa?',
-      confirmButtonText: 'Sim',
-      denyButtonText: `Cancelar`,
-    }).then((result) => {
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, pagar',
+      cancelButtonText: 'Cancelar'
+    }).then(async result => {
       if (result.isConfirmed) {
         try {
-          this.expenseDtService.Pay(expense.id)
-          Swal.fire('Despesa paga com sucesso!', '', 'success')
-        }
-        catch (error) {
-          console.error('enviaForm', error);
+          await this.expenseDtService.Pay(detail.id, detail.status)
+          await Swal.fire('Despesa paga com sucesso!', '', 'success')
+        } catch (error) {
+
         }
         finally {
-          this.expenseService.updateExpense.emit(expense ? expense : true);
+          this.loadExpenses(this.filter);
+        }
+      }
+    })
+  }
+  openExpense(detail: ExpenseDetails) {
+    Swal.fire({
+      title: 'Tem certeza que deseja reabrir está despesa?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, reabrir',
+      cancelButtonText: 'Cancelar'
+    }).then(async result => {
+      if (result.isConfirmed) {
+        try {
+          await this.expenseDtService.Pay(detail.id, detail.status)
+          await Swal.fire('Despesa aberta com sucesso!', '', 'success')
+        } catch (error) {
+
+        }
+        finally {
+          this.loadExpenses(this.filter);
         }
       }
     })

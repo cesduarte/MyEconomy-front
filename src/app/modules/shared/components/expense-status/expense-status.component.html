@@ -1,5 +1,10 @@
-<p-tag
+<!-- <p-tag
 [icon] ="getIcon()"
 [severity]="getColor()"
-[value]="getDescription()">
-</p-tag>
+[value]="getDescription()"
+>
+</p-tag> -->
+<button type="button" class="" [ngClass]="getClass()" (click)="payExpense()">
+  <i [ngClass]="getIcon()"></i>
+  {{ getDescription() }}
+</button>

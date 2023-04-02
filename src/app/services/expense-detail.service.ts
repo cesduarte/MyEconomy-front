@@ -12,9 +12,9 @@ export class ExpenseDetailService {
 
   constructor(private readonly http: HttpClient) { }
 
-  Pay(id?: number): Promise<any> {
+  Pay(id?: number, status?: number): Promise<any> {
     console.log(id)
-    return firstValueFrom(this.http.put(this.baseURL.concat('/'), {id: id, status: 1} ));
+    return firstValueFrom(this.http.put(this.baseURL.concat('/'), {id: id, status: status} ));
 
 	}
 }

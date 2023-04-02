@@ -43,18 +43,11 @@ export const MENU_ITEMS: IMenuItem[] =[
 		icon: "people",
 		link: "user",
 	},
-    {
-		key: "perfil",
-		label: "Perfil",
-		isTitle: false,
-		icon: "list",
-		link: "/user/profile/",
-	},
   {
 		key: "management",
 		label: "Gerenciamento",
 		isTitle: false,
-		icon: "list",
+		icon: "dataset",
 		link: "management",
 	},
 ]

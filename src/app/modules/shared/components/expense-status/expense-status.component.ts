@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-expense-status',
@@ -9,9 +9,15 @@ export class ExpenseStatusComponent {
 
   @Input() status: any;
 
+  @Output() payEmiter = new EventEmitter();
+
+  payExpense() {
+    this.payEmiter.emit();
+  }
+
   getIcon() : string {
     if(this.status == 2){
-      return "pi pi-lock"
+      return "pi pi-check"
     }
      return "pi pi-lock-open"
   }
@@ -21,10 +27,10 @@ export class ExpenseStatusComponent {
     }
      return "A pagar"
   }
-  getColor(): string {
+  getClass(): string {
     if(this.status == 2){
-      return "success"
+      return "btn btn-primary btn-sm"
     }
-     return "primary"
+     return "btn btn-warning btn-sm"
   }
 }
