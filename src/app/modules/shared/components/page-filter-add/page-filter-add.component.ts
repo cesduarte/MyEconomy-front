@@ -10,6 +10,7 @@ export class PageFilterAddComponent {
 
   @Output() openDialogEmiter = new EventEmitter();
   @Output() openDialogSearchEmiter = new EventEmitter();
+  @Output() openCleanFiltersEmiter = new EventEmitter();
 
   @Input() displayFilter!: boolean
   @Input() displayNew: boolean = true;
@@ -28,8 +29,9 @@ export class PageFilterAddComponent {
     this.items = [{
       label: 'Opções',
       items: [{
-        label: 'Busca avançada',
+        label: 'Limpar filtros',
         icon: 'pi pi-search',
+        command: () => this.cleanFilter(),
       },
       ]
     },
@@ -54,5 +56,8 @@ export class PageFilterAddComponent {
   }
   openDialogSearch() {
     this.openDialogSearchEmiter.emit();
+  }
+  cleanFilter() {
+    this.openCleanFiltersEmiter.emit()
   }
 }

@@ -29,8 +29,8 @@ export class ExpenseStatusComponent {
   }
   getClass(): string {
     if(this.status == 2){
-      return "btn btn-primary btn-sm"
+      return "btn p-button-success btn-sm"
     }
-     return "btn btn-warning btn-sm"
+     return "btn p-button-warning btn-sm"
   }
 }

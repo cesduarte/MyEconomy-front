@@ -4,7 +4,10 @@
 [value]="getDescription()"
 >
 </p-tag> -->
-<button type="button" class="" [ngClass]="getClass()" (click)="payExpense()">
-  <i [ngClass]="getIcon()"></i>
-  {{ getDescription() }}
+<button pButton pRipple
+[label]="getDescription()"
+[ngClass]="getClass()"
+[icon] ="getIcon()"
+(click)="payExpense()">
 </button>
+

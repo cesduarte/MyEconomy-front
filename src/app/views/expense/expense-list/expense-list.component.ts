@@ -82,11 +82,11 @@ export class ExpenseListComponent implements OnInit {
       showCancelButton: true,
       confirmButtonText: 'Sim',
       denyButtonText: `Cancelar`,
-    }).then((result) => {
+    }).then(async result => {
       if (result.isConfirmed) {
         try {
-          this.expenseService.delete(expense.id)
-          Swal.fire('Despesa deletada com sucesso!', '', 'success')
+          await this.expenseService.delete(expense.id)
+          await Swal.fire('Despesa deletada com sucesso!', '', 'success')
         }
         catch (error) {
           console.error('enviaForm', error);

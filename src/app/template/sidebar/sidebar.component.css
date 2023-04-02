@@ -9,8 +9,8 @@ mat-sidenav-container{
     width: 200px;
     background-color: #eee;
   }
-  .tee{
+  .my_layout_Content{
   padding-top: 30px;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
   }

@@ -20,7 +20,7 @@
         <div class="col-12 col-md-12">
           <label class="form-label">Responsável</label>
           <select id="inputState" class="form-control" formControlName="userId">
-           <option value = null ng-selected="true">-- Selecione o responsável --</option>
+           <option value = 0 ng-selected="true">-- Selecione o responsável --</option>
             <option *ngFor="let user of users" [ngValue]="user.id">{{user.fullName}}</option>
           </select>
         </div>
@@ -29,8 +29,18 @@
         <div class="col-12 col-md-12">
           <label class="form-label">Categoria</label>
           <select id="inputState" class="form-control" formControlName="categoryId">
-           <option value = null ng-selected="true">-- Selecione a categoria --</option>
+           <option value = 0 ng-selected="true">-- Selecione a categoria --</option>
             <option *ngFor="let category of categories" [ngValue]="category.id">{{category.description}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label class="form-label">Status</label>
+          <select id="inputState" class="form-control" formControlName="statusId">
+           <option value = 0 ng-selected="true">-- Selecione o status --</option>
+           <option value = 2>Somente despesas pagas</option>
+           <option value = 1>Somente despesas a pagar</option>
           </select>
         </div>
       </div>

@@ -1,35 +1,60 @@
 <app-page-title [titulo]="'Gerenciar despesas'"></app-page-title>
-<app-page-filter-add [displayNew]="false" (openDialogSearchEmiter)="openDialog()"></app-page-filter-add>
+<app-page-filter-add [displayNew]="false" (openDialogSearchEmiter)="openDialog()" (openCleanFiltersEmiter)="cleanFilter()"></app-page-filter-add>
 <div class="card shadow bg-white rounded">
   <div class="card-body">
-    <p-table [value]="expenses" responsiveLayout="stack" styleClass="p-datatable-sm">
+    <p-table [value]="expenses" responsiveLayout="stack" >
       <ng-template pTemplate="header">
         <tr>
-            <th>Descrição das despesas</th>
-            <th></th>
+            <th>Despesas</th>
+            <th style="text-align:right">
+              <p-tag icon="pi pi-calendar" value="De {{filter.startDate | DateFormatPipe }} até {{filter.lastDate| DateFormatPipe }} "></p-tag>
+            </th>
         </tr>
       </ng-template>
        <ng-template pTemplate="body" let-expense>
           <tr>
-            <td class="col-3">
-              <h5 class="card-title">{{expense.description}}</h5>
-              <div>
-                <small class="text-muted">
-                  <b>Responsável: </b>
-                {{expense.user.fullName}}
-                </small>
-              </div>
-              <div>
-                <small class="text-muted">
-                  <b>Categoria: </b>
-                  {{expense.category.description}}
-                </small>
+            <td class="col-4">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                          <div class="ms-2 c-details">
+                              <h6 class="mb-3">{{expense.description}}</h6>
+                              <div>
+                                <small class="text-muted">
+                                  <b>Responsável: </b>
+                                {{expense.user.fullName}}
+                                </small>
+                              </div>
+                              <div>
+                                <small class="text-muted">
+                                  <b>Categoria: </b>
+                                  {{expense.category.description}}
+                                </small>
+                              </div>
+                          </div>
+                      </div>
+                      <div>
+                          <p-badge value="{{expense.expenseDetailsViewModels.length}}"></p-badge>
+                      </div>
+                  </div>
+                  <!-- <div class="mt-2">
+                      <div class="mt-2">
+                          <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <div class="mt-3">
+                            <small class="text-muted">
+                              50 de 100
+                            </small>
+                            </div>
+                      </div>
+                  </div> -->
               </div>
             </td>
             <td class="col-9">
-              <div class="card">
+              <div class="card" style="border: none;">
                 <div class="card-body">
-                  <p-table [value]="expense.expenseDetailsViewModels" responsiveLayout="stack" styleClass="p-datatable-sm">
+                  <p-table [value]="expense.expenseDetailsViewModels" responsiveLayout="stack" styleClass="p-datatable-gridlines">
                     <ng-template pTemplate="header">
                         <tr>
                             <th>Data de vencimento</th>

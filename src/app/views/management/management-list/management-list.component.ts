@@ -30,7 +30,14 @@ export class ManagementListComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.getDefaultFilter();
+    await this.loadExpenses(this.filter);
 
+    this.expenseService.updateExpense.subscribe(async (Expense) => {
+      this.loadExpenses();
+    });
+  }
+  getDefaultFilter() {
     var date = new Date();
     var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
     var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
@@ -38,21 +45,28 @@ export class ManagementListComponent implements OnInit {
     this.filter.startDate = moment(firstDay).format('YYYY-MM-DD');
     this.filter.lastDate = moment(lastDay).format('YYYY-MM-DD');
 
-    await this.loadExpenses(this.filter);
+    this.filter.statusId = 0
 
-    this.expenseService.updateExpense.subscribe(async (Expense) => {
-      this.loadExpenses();
-    });
+    this.filter.categoryId = 0;
+    this.filter.userId = 0;
+
+  }
+  async cleanFilter(){
+    this.getDefaultFilter();
+    await this.loadExpenses(this.filter);
   }
   async loadExpenses(filter?: any): Promise<void> {
     try {
+
       this.expenses = await this.expenseService.getByFilters(filter);
+
       if (this.filter?.userId > 0) {
         this.expenses = this.expenses.filter(e => e.user.id == this.filter.userId)
       }
       if (this.filter?.categoryId > 0) {
         this.expenses = this.expenses.filter(e => e.category.id == this.filter.categoryId)
       }
+
     } catch (error) {
       console.log(error)
     }
@@ -116,7 +130,7 @@ export class ManagementListComponent implements OnInit {
           await this.expenseDtService.Pay(detail.id, detail.status)
           await Swal.fire('Despesa paga com sucesso!', '', 'success')
         } catch (error) {
-
+          console.log(error)
         }
         finally {
           this.loadExpenses(this.filter);
@@ -147,5 +161,4 @@ export class ManagementListComponent implements OnInit {
       }
     })
   }
-
 }

@@ -52,6 +52,7 @@ export class ManagementFiltersComponent {
       lastDate: [this.filter?.lastDate],
       categoryId: [this.filter?.categoryId],
       userId: [this.filter?.userId],
+      statusId: [this.filter?.statusId],
     });
   }
 

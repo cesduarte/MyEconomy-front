@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Expense } from '../models/expense';
 import * as QueryString from 'qs';
+import { ExpenseFilters } from '../models/expenseFilter';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,13 @@ export class ExpenseService {
   get(): Promise<Expense[]> {
 		return firstValueFrom(this.http.get<Expense[]>(this.baseURL));
 	}
-  getByFilters(filters?: any): Promise<Expense[]> {
+  getByFilters(filters: ExpenseFilters): Promise<Expense[]> {
 
-    return firstValueFrom(this.http.get<Expense[]>(this.baseURL + "/range",{
+    return firstValueFrom(this.http.get<Expense[]>(this.baseURL + "/filter",{
       params:{
         'startDate':filters.startDate,
         'finalDate':filters.lastDate,
+        'status': filters.statusId
       }
     }));
 	}
