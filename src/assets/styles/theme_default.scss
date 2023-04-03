@@ -43,17 +43,10 @@ body{
 background-color: var(--default-color)  !important;
 }
 
-:host ::ng-deep {
-  .p-datatable .p-datatable-thead>tr>th {
-    background-color: white;
-  }
-}
-:host ::ng-deep {
-  .p-datatable .p-datatable-thead>tr>th {
-    background-color: white;
-  }
-}
 
+.p-datatable .p-datatable-thead>tr>th {
+  background-color: white;
+}
 
 
 .content{
