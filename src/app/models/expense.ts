@@ -5,9 +5,10 @@ export interface Expense{
   id: number;
   description:string;
   expenseType: number;
-  dueDate: Date
-  installments: number
-  expenseValue: number
+  dueDate: Date;
+  installments: number;
+  expenseValue: number;
   user: User;
-  category: Category
+  category: Category;
+  active:boolean;
 }

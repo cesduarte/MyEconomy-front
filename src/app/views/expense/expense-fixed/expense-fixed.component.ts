@@ -5,6 +5,7 @@ import { ExpenseFilters } from 'src/app/models/expenseFilter';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { ExpenseFiltersComponent } from '../expense-filters/expense-filters.component';
 import * as moment from 'moment';
+import { ExpenseDetailComponent } from '../expense-detail/expense-detail.component';
 
 @Component({
   selector: 'app-expense-fixed',
@@ -26,7 +27,7 @@ export class ExpenseFixedComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
 
-    // this.getDefaultFilter();
+    this.getDefaultFilter();
 
     await this.loadList();
 
@@ -39,7 +40,7 @@ export class ExpenseFixedComponent implements OnInit {
 
     try {
 
-      this.expenseList = await this.expenseService.get();
+      this.expenseList = await this.expenseService.getByFilters(this.filter);
 
     } catch (error) {
 
@@ -56,7 +57,8 @@ export class ExpenseFixedComponent implements OnInit {
       initialState: {
         filter: this.filter,
         showFilterDate: false,
-        showFilterStatus: false
+        showFilterStatus: false,
+        showFilterType: false,
       },
       class: 'mymodal-dialog-lg modal-dialog-centered'
     };
@@ -68,5 +70,40 @@ export class ExpenseFixedComponent implements OnInit {
       this.filter = { ...result.value }
       this.loadList()
     })
+  }
+  getDefaultFilter() {
+    this.filter = {} as ExpenseFilters;
+
+    var date = new Date();
+    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+    this.filter.startDate = moment(firstDay).format('YYYY-MM-DD');
+    this.filter.lastDate = moment(lastDay).format('YYYY-MM-DD');
+
+    this.filter.typeId = 0;
+    this.filter.statusId = 0
+
+    this.filter.categoryId = 0;
+    this.filter.userId = 0;
+
+    this.filter.active = true;
+
+  }
+  async cleanFilter() {
+    this.getDefaultFilter();
+    await this.loadList();
+  }
+  openDialog() {
+    const initialState: ModalOptions = {
+      initialState: {
+        isInclusao: true
+      },
+      class: 'mymodal-dialog-lg modal-dialog-centered'
+    };
+
+    this.bsModalRef = this.modalService.show(ExpenseDetailComponent,
+      initialState
+    );
   }
 }

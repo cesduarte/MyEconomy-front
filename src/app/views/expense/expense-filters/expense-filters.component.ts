@@ -30,6 +30,8 @@ export class ExpenseFiltersComponent {
 
   showFilterStatus: boolean = true;
 
+  showFilterType:boolean = true;
+
   public onClose!: Subject<any>;
 
   constructor(
@@ -39,10 +41,6 @@ export class ExpenseFiltersComponent {
     private readonly categoryService: CategoryService,
   ) { }
   async ngOnInit(): Promise<void> {
-
-    if(this.filter == null){
-      this.getDefaultFilter()
-    }
 
     this.onClose = new Subject();
 
@@ -54,7 +52,6 @@ export class ExpenseFiltersComponent {
   }
   async startForm() {
     this.form = this.formBuilder.group({
-      description: [this.filter?.description],
       startDate: [this.filter?.startDate],
       lastDate: [this.filter?.lastDate],
       categoryId: [this.filter?.categoryId],
@@ -63,25 +60,6 @@ export class ExpenseFiltersComponent {
       statusId: [this.filter?.statusId],
       active: [this.filter?.active]
     });
-  }
-  getDefaultFilter() {
-    this.filter = {} as ExpenseFilters;
-
-    var date = new Date();
-    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-    var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-
-    this.filter.startDate = moment(firstDay).format('YYYY-MM-DD');
-    this.filter.lastDate = moment(lastDay).format('YYYY-MM-DD');
-
-    this.filter.typeId = 0;
-    this.filter.statusId = 0
-
-    this.filter.categoryId = 0;
-    this.filter.userId = 0;
-
-    this.filter.active = true;
-
   }
 
   async loadUsers() {

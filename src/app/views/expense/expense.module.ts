@@ -10,6 +10,7 @@ import { ExpenseDetailTableComponent } from './expense-detail-table/expense-deta
 import { ExpenseFixedComponent } from './expense-fixed/expense-fixed.component';
 import { ExpenseFixedListComponent } from './expense-fixed/expense-fixed-list/expense-fixed-list.component';
 import { ExpenseFiltersComponent } from './expense-filters/expense-filters.component';
+import { ExpenseStatusActiveComponent } from './expense-aux/expense-status-active/expense-status-active.component';
 
 
 
@@ -21,7 +22,8 @@ import { ExpenseFiltersComponent } from './expense-filters/expense-filters.compo
     ExpenseDetailTableComponent,
     ExpenseFixedComponent,
     ExpenseFixedListComponent,
-    ExpenseFiltersComponent
+    ExpenseFiltersComponent,
+    ExpenseStatusActiveComponent
   ],
   imports: [
     CommonModule,
