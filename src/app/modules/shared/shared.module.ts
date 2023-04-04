@@ -42,6 +42,7 @@ import { ChipsModule } from 'primeng/chips';
 import { BadgeModule } from 'primeng/badge';
 import { ExpenseStatusComponent } from './components/expense-status/expense-status.component';
 import { ExpenseManagementButtonsComponent } from './components/expense-management-buttons/expense-management-buttons.component';
+import { ExpenseTypeComponent } from './components/expense-type/expense-type.component';
 
 
 
@@ -54,6 +55,7 @@ defineLocale('pt-br', ptBrLocale);
     DatetimeFormatPipe,
     ExpenseStatusComponent,
     ExpenseManagementButtonsComponent,
+    ExpenseTypeComponent,
 
   ],
   imports: [
@@ -126,7 +128,8 @@ defineLocale('pt-br', ptBrLocale);
     ChipsModule,
     BadgeModule,
     ExpenseStatusComponent,
-    ExpenseManagementButtonsComponent
+    ExpenseManagementButtonsComponent,
+    ExpenseTypeComponent,
   ]
 })
 export class SharedModule { }

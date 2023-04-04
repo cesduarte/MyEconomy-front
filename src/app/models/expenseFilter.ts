@@ -6,5 +6,6 @@ export interface ExpenseFilters{
   lastDate:string,
   userId: number;
   categoryId: number,
-  statusId: number
+  statusId: number,
+  typeId: number;
 }

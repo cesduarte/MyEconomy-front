@@ -9,28 +9,16 @@ export class ExpenseStatusComponent {
 
   @Input() status: any;
 
-  @Output() payEmiter = new EventEmitter();
-
-  payExpense() {
-    this.payEmiter.emit();
-  }
-
-  getIcon() : string {
-    if(this.status == 2){
-      return "pi pi-check"
-    }
-     return "pi pi-lock-open"
-  }
   getDescription() : string {
     if(this.status == 2){
-      return "Paga"
+      return "Sim"
     }
-     return "A pagar"
+     return "Não"
   }
-  getClass(): string {
+  getColor(): string {
     if(this.status == 2){
-      return "btn p-button-success btn-sm"
+      return "success"
     }
-     return "btn p-button-warning btn-sm"
+     return "danger"
   }
 }

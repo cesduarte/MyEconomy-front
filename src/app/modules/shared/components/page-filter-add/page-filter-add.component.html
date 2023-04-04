@@ -2,8 +2,8 @@
 <div class="shadow bg-white rounded">
   <p-toolbar styleClass="mb-1 gap-2" [style]="{ background: 'white' }">
     <div class="p-toolbar-group-start">
-        <p-button  label="Cadastrar"
-        icon="pi pi-plus" class="mr-2" styleClass="p-button-help" *ngIf="displayNew" (click)="openDialog()"></p-button>
+        <p-button  [label]="displayButtonText"
+        icon="pi pi-plus" class="mr-2" styleClass="p-button-help" (click)="openDialog()"></p-button>
     </div>
     <div class="p-toolbar-group-end">
       <p-button icon="pi pi-search" class="mr-2" (click)="openDialogSearch()"></p-button>

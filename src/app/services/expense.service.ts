@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Expense } from '../models/expense';
 import * as QueryString from 'qs';
 import { ExpenseFilters } from '../models/expenseFilter';
+import { ExpenseDetails } from '../models/expenseDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +20,6 @@ export class ExpenseService {
 
   get(): Promise<Expense[]> {
 		return firstValueFrom(this.http.get<Expense[]>(this.baseURL));
-	}
-  getByFilters(filters: ExpenseFilters): Promise<Expense[]> {
-
-    return firstValueFrom(this.http.get<Expense[]>(this.baseURL + "/filter",{
-      params:{
-        'startDate':filters.startDate,
-        'finalDate':filters.lastDate,
-        'status': filters.statusId
-      }
-    }));
 	}
   save(data: Expense,id?: number): Promise<any> {
 

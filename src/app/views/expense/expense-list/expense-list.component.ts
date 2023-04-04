@@ -33,8 +33,6 @@ export class ExpenseListComponent implements OnInit {
 
   items!: any[];
 
-
-
   async ngOnInit(): Promise<void> {
 
     await this.loadExpenses();
@@ -42,17 +40,13 @@ export class ExpenseListComponent implements OnInit {
     this.expenseService.updateExpense.subscribe(async (Expense) => {
       this.loadExpenses();
     });
-    this.items = [
-      { label: 'Categories' },
-      { label: 'Sports' },
-    ];
+
   }
 
 
   async loadExpenses(): Promise<void> {
     try {
       this.expenses = await this.expenseService.get();
-      console.log(this.expenses)
     } catch (error) {
 
       console.log(error)
@@ -101,7 +95,7 @@ export class ExpenseListComponent implements OnInit {
   detail(expense: Expense){
     const initialState: ModalOptions = {
       initialState: {
-        details: expense.expenseDetailsViewModels
+        // details: expense.expenseDetailsViewModels
       },
       class: 'mymodal-dialog-lg modal-dialog-centered'
     };

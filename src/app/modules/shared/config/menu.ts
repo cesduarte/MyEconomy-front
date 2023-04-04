@@ -17,7 +17,7 @@ export const MENU_ITEMS: IMenuItem[] =[
 	},
     {
 		key: "despesas",
-		label: "Despesas",
+		label: "Despesas fixas",
 		isTitle: false,
 		icon: "monetization_on",
 		link: "expense",
@@ -45,7 +45,7 @@ export const MENU_ITEMS: IMenuItem[] =[
 	},
   {
 		key: "management",
-		label: "Gerenciamento",
+		label: "Controle de despesas",
 		isTitle: false,
 		icon: "dataset",
 		link: "management",

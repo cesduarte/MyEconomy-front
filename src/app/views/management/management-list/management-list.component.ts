@@ -16,24 +16,22 @@ import { ManagementFiltersComponent } from '../management-filters/management-fil
 })
 export class ManagementListComponent implements OnInit {
 
-  expenses: Expense[] = []
-  details: ExpenseDetails[] = [];
+  expenses: ExpenseDetails[] = [];
+
   bsModalRef?: BsModalRef
+
   filter = {} as ExpenseFilters
 
   constructor(
-    private readonly expenseService: ExpenseService,
     private readonly modalService: BsModalService,
     private readonly expenseDtService: ExpenseDetailService
-  ) {
-
-  }
+  ) { }
 
   async ngOnInit(): Promise<void> {
     this.getDefaultFilter();
     await this.loadExpenses(this.filter);
 
-    this.expenseService.updateExpense.subscribe(async (Expense) => {
+    this.expenseDtService.updateExpense.subscribe(async (Expense) => {
       this.loadExpenses();
     });
   }
@@ -45,27 +43,21 @@ export class ManagementListComponent implements OnInit {
     this.filter.startDate = moment(firstDay).format('YYYY-MM-DD');
     this.filter.lastDate = moment(lastDay).format('YYYY-MM-DD');
 
+    this.filter.typeId = 0;
     this.filter.statusId = 0
 
     this.filter.categoryId = 0;
     this.filter.userId = 0;
 
   }
-  async cleanFilter(){
+  async cleanFilter() {
     this.getDefaultFilter();
     await this.loadExpenses(this.filter);
   }
   async loadExpenses(filter?: any): Promise<void> {
     try {
-
-      this.expenses = await this.expenseService.getByFilters(filter);
-
-      if (this.filter?.userId > 0) {
-        this.expenses = this.expenses.filter(e => e.user.id == this.filter.userId)
-      }
-      if (this.filter?.categoryId > 0) {
-        this.expenses = this.expenses.filter(e => e.category.id == this.filter.categoryId)
-      }
+      this.expenses = await this.expenseDtService.getByFilters(filter);
+      console.log(this.expenses)
 
     } catch (error) {
       console.log(error)
@@ -74,12 +66,12 @@ export class ManagementListComponent implements OnInit {
 
     }
   }
-  getexpenseValue(): number {
-    var total = this.details.reduce((accumulator, object) => {
-      return accumulator + object.expenseValue;
-    }, 0);
-    return total;
-  }
+  // getexpenseValue(): number {
+  //   var total = this.details.reduce((accumulator, object) => {
+  //     return accumulator + object.expenseValue;
+  //   }, 0);
+  //   return total;
+  // }
   getTextStatus(status: number): string {
     if (status == 1) {
       return "A pagar"

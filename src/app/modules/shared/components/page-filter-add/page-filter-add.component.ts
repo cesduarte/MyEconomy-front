@@ -13,7 +13,7 @@ export class PageFilterAddComponent {
   @Output() openCleanFiltersEmiter = new EventEmitter();
 
   @Input() displayFilter!: boolean
-  @Input() displayNew: boolean = true;
+  @Input() displayButtonText = "Cadastrar";
 
   items!: MenuItem[];
   filter!: string;

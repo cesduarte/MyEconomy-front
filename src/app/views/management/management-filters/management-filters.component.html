@@ -36,13 +36,24 @@
       </div>
       <div class="row">
         <div class="col-12 col-md-6">
-          <label class="form-label">Status</label>
+          <label class="form-label">Tipo de despesa</label>
+          <select id="inputState" class="form-control" formControlName="typeId">
+           <option value = 0 ng-selected="true">-- Selecione o tipo --</option>
+           <option value = 1>Somente despesas fixas</option>
+           <option value = 2>Somente despesas variáveis</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-6">
+          <label class="form-label">Status despesas</label>
           <select id="inputState" class="form-control" formControlName="statusId">
            <option value = 0 ng-selected="true">-- Selecione o status --</option>
            <option value = 2>Somente despesas pagas</option>
            <option value = 1>Somente despesas a pagar</option>
           </select>
         </div>
+      </div>
+      <div class="row">
+
       </div>
     </div>
   </form>
