@@ -7,6 +7,9 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ExpenseRoutingModule } from './expense-routing.module';
 import { DatetimeFormatPipe } from 'src/app/pipes/datetime-format.pipe';
 import { ExpenseDetailTableComponent } from './expense-detail-table/expense-detail-table.component';
+import { ExpenseFixedComponent } from './expense-fixed/expense-fixed.component';
+import { ExpenseFixedListComponent } from './expense-fixed/expense-fixed-list/expense-fixed-list.component';
+import { ExpenseFiltersComponent } from './expense-filters/expense-filters.component';
 
 
 
@@ -15,7 +18,10 @@ import { ExpenseDetailTableComponent } from './expense-detail-table/expense-deta
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseDetailComponent,
-    ExpenseDetailTableComponent
+    ExpenseDetailTableComponent,
+    ExpenseFixedComponent,
+    ExpenseFixedListComponent,
+    ExpenseFiltersComponent
   ],
   imports: [
     CommonModule,
