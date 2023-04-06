@@ -44,11 +44,11 @@
           </select>
         </div>
         <div class="col-12 col-md-6" *ngIf="showFilterStatus">
-          <label class="form-label">Status despesas</label>
+          <label class="form-label">Despesas pagas</label>
           <select id="inputState" class="form-control" formControlName="statusId">
-           <option value = 0 ng-selected="true">-- Selecione o status --</option>
-           <option value = 2>Somente despesas pagas</option>
-           <option value = 1>Somente despesas a pagar</option>
+           <option value = 0 ng-selected="true">-- Todas --</option>
+           <option value = 2>Sim</option>
+           <option value = 1>Não</option>
           </select>
         </div>
       </div>

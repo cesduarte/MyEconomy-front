@@ -14,6 +14,7 @@ export class PageFilterAddComponent {
 
   @Input() displayFilter!: boolean
   @Input() displayButtonText = "Cadastrar";
+  @Input() displayButtonVisible: boolean = true;;
 
   items!: MenuItem[];
   filter!: string;

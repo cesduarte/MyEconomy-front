@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { BsDatepickerDirective, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { PrimeNGConfig } from 'primeng/api';
+import { Subject } from 'rxjs';
 import { Category } from 'src/app/models/category';
 import { Expense } from 'src/app/models/expense';
 import { User } from 'src/app/models/user';
@@ -24,6 +25,8 @@ export class ExpenseDetailComponent implements OnInit {
   users: User[] = []
   categories: Category[] = []
   userSelected!: number;
+  typeId: number = 1
+  public onClose!: Subject<any>;
 
   get f(): any {
     return this.form.controls;
@@ -50,6 +53,7 @@ export class ExpenseDetailComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.onClose = new Subject();
     this.iniciaForm()
     await this.loadCategory()
     await this.loadUsers();
@@ -64,7 +68,8 @@ export class ExpenseDetailComponent implements OnInit {
         installments: [this.expense?.installments, [Validators.required]],
         expenseValue: [this.expense?.expenseValue, [Validators.required]],
         userid: [this.expense?.user?.id],
-        categoryid: [this.expense?.category?.id]
+        categoryid: [this.expense?.category?.id],
+        typeId: [this.typeId]
       });
     }
     else {
@@ -98,7 +103,6 @@ export class ExpenseDetailComponent implements OnInit {
     }
 
     else {
-
       try {
         const expense = await this.expenseService.save(this.form.value, this.expense?.id);
 
@@ -107,8 +111,8 @@ export class ExpenseDetailComponent implements OnInit {
           title: 'Sucesso',
           text: `Despesa ${this.expense ? 'alterada' : 'criada'} com sucesso!`
         }).then(() => {
-          this.bsModalRef.hide()
-          this.expenseService.updateExpense.emit(this.expense ? expense : true);
+          this.onClose.next(this.form);
+            this.bsModalRef.hide();
         });
       } catch (error) {
         console.error('enviaForm', error);

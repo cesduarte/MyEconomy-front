@@ -43,8 +43,8 @@ import { BadgeModule } from 'primeng/badge';
 import { ExpenseStatusComponent } from './components/expense-status/expense-status.component';
 import { ExpenseManagementButtonsComponent } from './components/expense-management-buttons/expense-management-buttons.component';
 import { ExpenseTypeComponent } from './components/expense-type/expense-type.component';
-
-
+import { TabViewModule } from 'primeng/tabview';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 defineLocale('pt-br', ptBrLocale);
 @NgModule({
@@ -87,6 +87,8 @@ defineLocale('pt-br', ptBrLocale);
     ChipModule,
     ChipsModule,
     BadgeModule,
+    TabViewModule,
+    TabMenuModule
 
     ],
   exports:[
@@ -101,7 +103,6 @@ defineLocale('pt-br', ptBrLocale);
     MatPaginatorModule,
     MatInputModule,
     MatMenuModule,
-
     MatCheckboxModule,
     MatSnackBarModule,
     PageTitleComponent,
@@ -130,6 +131,8 @@ defineLocale('pt-br', ptBrLocale);
     ExpenseStatusComponent,
     ExpenseManagementButtonsComponent,
     ExpenseTypeComponent,
+    TabViewModule,
+    TabMenuModule
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,71 @@
+<app-page-filter-add [displayButtonVisible]="type == '2'" [displayButtonText]="'Lançar Despesa'"
+(openDialogEmiter)="openDialog()"
+(openDialogSearchEmiter)="showModalSearch()"
+(openCleanFiltersEmiter)="cleanFilter()"
+></app-page-filter-add>
+<div class="card shadow bg-white rounded">
+  <div class="card-body">
+    <p-table [value]="expenseList" responsiveLayout="stack" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Responsável</th>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Pago?</th>
+            <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-expenseDt>
+        <tr>
+          <td>
+            <span class="p-column-title"><b>Descrição: </b></span>
+            <small>
+              {{ expenseDt.expense.description }}
+            </small>
+          </td>
+          <td>
+            <span class="p-column-title"><b>Categoria: </b></span>
+            <small>
+              {{ expenseDt.expense.category.description }}
+            </small>
+          </td>
+          <td>
+            <span class="p-column-title"><b>Responsável: </b></span>
+            <small>
+            {{ expenseDt.expense.user.fullName }}
+            </small>
+          </td>
+          <td>
+            <span class="p-column-title"><b>Data de vencimento: </b></span>
+            <small>
+              {{ expenseDt.dueDay  | DateFormatPipe }}
+            </small>
+          </td>
+          <td>
+            <span class="p-column-title"><b>Valor: </b></span>
+            <small>
+              {{ expenseDt.expenseValue | currency : "R$ " }}
+           </small>
+          </td>
+          <td>
+            <span class="p-column-title"><b>Pago? </b></span>
+            <app-expense-status [status]="expenseDt.status"></app-expense-status>
+          </td>
+          <td>
+             <div class="flex align-items-center justify-content-center gap-2">
+                <button  pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-text mr-2"></button>
+                <button  pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-text mr-2"></button>
+                <button  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-text mr-2"></button>
+              </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+
+
+

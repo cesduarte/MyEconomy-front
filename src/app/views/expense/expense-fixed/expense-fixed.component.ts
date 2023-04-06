@@ -81,7 +81,6 @@ export class ExpenseFixedComponent implements OnInit {
     this.filter.startDate = moment(firstDay).format('YYYY-MM-DD');
     this.filter.lastDate = moment(lastDay).format('YYYY-MM-DD');
 
-    this.filter.typeId = 0;
     this.filter.statusId = 0
 
     this.filter.categoryId = 0;
@@ -105,5 +104,9 @@ export class ExpenseFixedComponent implements OnInit {
     this.bsModalRef = this.modalService.show(ExpenseDetailComponent,
       initialState
     );
+    this.bsModalRef.content.onClose.subscribe((result: any) => {
+      this.loadList()
+    })
+
   }
 }

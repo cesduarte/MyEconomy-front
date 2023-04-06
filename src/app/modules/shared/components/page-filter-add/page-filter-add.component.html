@@ -2,7 +2,7 @@
 <div class="shadow bg-white rounded">
   <p-toolbar styleClass="mb-1 gap-2" [style]="{ background: 'white' }">
     <div class="p-toolbar-group-start">
-        <p-button  [label]="displayButtonText"
+        <p-button  [label]="displayButtonText" *ngIf="displayButtonVisible"
         icon="pi pi-plus" class="mr-2" styleClass="p-button-help" (click)="openDialog()"></p-button>
     </div>
     <div class="p-toolbar-group-end">

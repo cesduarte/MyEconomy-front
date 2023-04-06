@@ -25,8 +25,6 @@ export class ExpenseService {
 
     let params;
 
-    console.log(filters)
-
     if (filters != null) {
       params = {
         'categoryId': filters.categoryId,
