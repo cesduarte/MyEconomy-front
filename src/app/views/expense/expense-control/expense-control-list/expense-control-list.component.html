@@ -5,7 +5,11 @@
 ></app-page-filter-add>
 <div class="card shadow bg-white rounded">
   <div class="card-body">
-    <p-table [value]="expenseList" responsiveLayout="stack" styleClass="p-datatable-gridlines">
+    <p-table [value]="expenseList"
+    responsiveLayout="stack"
+    styleClass="p-datatable-gridlines"
+      [paginator]="true"
+      [rows]="5">
       <ng-template pTemplate="header">
         <tr>
             <th>Descrição</th>
@@ -13,7 +17,7 @@
             <th>Responsável</th>
             <th>Data</th>
             <th>Valor</th>
-            <th>Pago?</th>
+            <th *ngIf="type == 1">Pago?</th>
             <th></th>
         </tr>
       </ng-template>
@@ -49,7 +53,7 @@
               {{ expenseDt.expenseValue | currency : "R$ " }}
            </small>
           </td>
-          <td>
+          <td *ngIf="type == 1">
             <span class="p-column-title"><b>Pago? </b></span>
             <app-expense-status [status]="expenseDt.status"></app-expense-status>
           </td>
