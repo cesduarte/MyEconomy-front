@@ -6,6 +6,9 @@ import { ExpenseFilters } from 'src/app/models/expenseFilter';
 import { ExpenseFiltersComponent } from '../../expense-filters/expense-filters.component';
 import { ExpenseDetailService } from 'src/app/services/expense-detail.service';
 import { ExpenseDetailComponent } from '../../expense-detail/expense-detail.component';
+import Swal from 'sweetalert2';
+import { ExpenseService } from 'src/app/services/expense.service';
+import { Expense } from 'src/app/models/expense';
 
 @Component({
   selector: 'app-expense-control-list',
@@ -24,7 +27,9 @@ export class ExpenseControlListComponent {
 
   constructor(
     private readonly modalService: BsModalService,
-    private readonly expenseDtService: ExpenseDetailService
+    private readonly expenseDtService: ExpenseDetailService,
+    private readonly expenseService: ExpenseService,
+
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -101,6 +106,28 @@ export class ExpenseControlListComponent {
     );
     this.bsModalRef.content.onClose.subscribe((result: any) => {
       this.loadExpenses();
+    })
+  }
+  delete(expense: Expense) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Tem certeza que deseja deletar?',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      denyButtonText: `Cancelar`,
+    }).then(async result => {
+      if (result.isConfirmed) {
+        try {
+          await this.expenseService.delete(expense.id)
+          await Swal.fire('Despesa deletada com sucesso!', '', 'success')
+        }
+        catch (error) {
+          console.error('enviaForm', error);
+        }
+        finally {
+          this.loadExpenses()
+        }
+      }
     })
   }
 }

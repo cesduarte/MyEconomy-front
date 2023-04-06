@@ -59,9 +59,8 @@
           </td>
           <td>
              <div class="flex align-items-center justify-content-center gap-2">
-                <button  pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-text mr-2"></button>
-                <button  pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-text mr-2"></button>
-                <button  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-text mr-2"></button>
+              <button  pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-text mr-2" *ngIf="type == 1"></button>
+              <button  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-text mr-2" *ngIf="type == 2" (click)="delete(expenseDt.expense)"></button>
               </div>
           </td>
         </tr>
