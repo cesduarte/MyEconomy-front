@@ -1,0 +1,20 @@
+
+<app-page-title [titulo]="'Relatórios'"></app-page-title>
+<p-tabView>
+  <p-tabPanel *ngFor="let item of items">
+    <ng-template pTemplate="header">
+      <div class="card-tab">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+              <div class="icon-tab"> <i [ngClass]="item.icon"></i> </div>
+              <div class="ms-2 c-details">
+                  <h6 class="mb-0">Relatório</h6>
+                  <span>{{item.label}}</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <app-report-list></app-report-list>
+  </p-tabPanel>
+</p-tabView>

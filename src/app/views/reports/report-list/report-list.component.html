@@ -1,0 +1,55 @@
+<app-page-filter-add></app-page-filter-add>
+<div class="card shadow bg-white rounded">
+  <div class="card-body">
+    <p-table [value]="report">
+      <ng-template pTemplate="body" let-report>
+        <tr>
+          <td>
+            <div class="card p-3 mb-2">
+              <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row align-items-center">
+                      <div class="ms-2 c-details">
+                          <h6 class="mb-0">{{report.month}}</h6>
+                          <span>{{report.period }}</span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p-table [value]="report.reportValues"  styleClass="p-datatable-gridlines">
+              <ng-template pTemplate="header">
+                <tr>
+                    <th>Despensa fixas</th>
+                    <th>Despesas variáveis</th>
+                    <th>Total</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-values>
+                <tr>
+                  <td>
+                    <small>
+                      {{ values.expenseFixed | currency : "R$ " }}
+                    </small>
+                  </td>
+                  <td>
+                    <span class="p-column-title"><b>Valor: </b></span>
+                    <small>
+                      {{ values.expenseVariable | currency : "R$ " }}
+                   </small>
+                  </td>
+                  <td>
+                    <span class="p-column-title"><b>Valor: </b></span>
+                    <small>
+                      {{values.expenseFixed  + values.expenseVariable | currency : "R$ "}}
+                   </small>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

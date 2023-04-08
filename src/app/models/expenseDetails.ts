@@ -6,4 +6,5 @@ export interface ExpenseDetails{
   expenseValue: number;
   status: number;
   expense: Expense
+  PaymentValue:Date;
 }

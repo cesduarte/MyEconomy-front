@@ -29,19 +29,19 @@ export const MENU_ITEMS: IMenuItem[] = [
 		icon: "dataset",
 		link: "expense/control",
 	},
-  {
-    key: "plano",
-    label: "Plano",
-    isTitle: false,
-    icon: "money",
-    link: "",
-  },
+  // {
+  //   key: "plano",
+  //   label: "Plano",
+  //   isTitle: false,
+  //   icon: "money",
+  //   link: "",
+  // },
   {
     key: "relatorio",
     label: "Relatório",
     isTitle: false,
     icon: "print",
-    link: "",
+    link: "report",
   },
   {
     key: "user",
