@@ -44,7 +44,7 @@
           </select>
         </div>
         <div class="col-12 col-md-6" *ngIf="showFilterStatus">
-          <label class="form-label">Despesas pagas</label>
+          <label class="form-label">Pago?</label>
           <select id="inputState" class="form-control" formControlName="statusId">
            <option value = 0 ng-selected="true">-- Todas --</option>
            <option value = 2>Sim</option>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6" *ngIf="showFilterActive">
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" formControlName="active">
             <label class="form-check-label" for="flexSwitchCheckDefault">Somente despesas ativas</label>

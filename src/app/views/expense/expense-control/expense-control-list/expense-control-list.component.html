@@ -17,8 +17,11 @@
             <th>Responsável</th>
             <th>Data</th>
             <th>Valor</th>
-            <th *ngIf="type == 1">Pago?</th>
-            <th></th>
+            <th>
+              <div class="flex align-items-center justify-content-center gap-2">
+                {{titleCollunButton}}
+              </div>
+            </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-expenseDt>
@@ -53,15 +56,13 @@
               {{ expenseDt.expenseValue | currency : "R$ " }}
            </small>
           </td>
-          <td *ngIf="type == 1">
-            <span class="p-column-title"><b>Pago? </b></span>
-            <app-expense-status [status]="expenseDt.status"></app-expense-status>
-          </td>
           <td>
-             <div class="flex align-items-center justify-content-center gap-2">
-              <button  pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-text mr-2" *ngIf="type == 1"></button>
-              <button  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-text mr-2" *ngIf="type == 2" (click)="delete(expenseDt.expense)"></button>
-              </div>
+            <span class="p-column-title"><b>{{titleCollunButton}}  </b></span>
+            <div class="flex align-items-center justify-content-center gap-2">
+              <app-expense-status (deleteExpenseEmiter)="deleteExpense(expenseDt)"
+              (updateExpenseEmiter)="updateExpense(expenseDt)"
+               [status]="expenseDt.status" [type]="type"></app-expense-status>
+            </div>
           </td>
         </tr>
       </ng-template>

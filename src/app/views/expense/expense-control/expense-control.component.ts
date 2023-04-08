@@ -15,8 +15,8 @@ export class ExpenseControlComponent {
 
   ngOnInit() {
     this.items = [
-      { label: 'fixa', icon: 'pi pi-fw pi-home', id: "1" },
-      { label: 'variável', icon: 'pi pi-fw pi-calendar', id: "2" }
+      { label: 'fixas', icon: 'pi pi-money-bill', id: "1" },
+      { label: 'variáveis', icon: 'pi pi-money-bill', id: "2" }
     ];
   }
 }

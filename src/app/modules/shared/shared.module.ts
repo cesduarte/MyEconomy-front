@@ -45,6 +45,7 @@ import { ExpenseManagementButtonsComponent } from './components/expense-manageme
 import { ExpenseTypeComponent } from './components/expense-type/expense-type.component';
 import { TabViewModule } from 'primeng/tabview';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { AvatarModule } from 'primeng/avatar';
 
 defineLocale('pt-br', ptBrLocale);
 @NgModule({
@@ -88,7 +89,8 @@ defineLocale('pt-br', ptBrLocale);
     ChipsModule,
     BadgeModule,
     TabViewModule,
-    TabMenuModule
+    TabMenuModule,
+    AvatarModule
 
     ],
   exports:[
@@ -132,7 +134,8 @@ defineLocale('pt-br', ptBrLocale);
     ExpenseManagementButtonsComponent,
     ExpenseTypeComponent,
     TabViewModule,
-    TabMenuModule
+    TabMenuModule,
+    AvatarModule
   ]
 })
 export class SharedModule { }

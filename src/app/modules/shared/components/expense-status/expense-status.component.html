@@ -1,11 +1,6 @@
-<p-tag
-[severity]="getColor()"
-[value]="getDescription()">
-</p-tag>
-<!-- <button pButton pRipple
-[label]="getDescription()"
-[ngClass]="getClass()"
-[icon] ="getIcon()"
-(click)="payExpense()">
-</button> -->
-
+<p-button [icon]="getIcon()" [styleClass]="getColor()" [label]="getDescription()"
+ *ngIf="type == 1" (click)="updateExpense()">
+</p-button>
+<p-button icon="pi pi-trash" styleClass="p-button-sm p-button-danger" label="Excluir"
+*ngIf="type == 2" (click)="deleteExpense()">
+</p-button>

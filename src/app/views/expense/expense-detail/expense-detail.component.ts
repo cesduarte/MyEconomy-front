@@ -20,6 +20,7 @@ import Swal from 'sweetalert2';
 export class ExpenseDetailComponent implements OnInit {
 
   @Input() expense!: Expense;
+  @Input() title: string = "Cadastro de despesas"
   form!: FormGroup;
   isInclusao: boolean = false;
   users: User[] = []
@@ -61,11 +62,13 @@ export class ExpenseDetailComponent implements OnInit {
 
   async iniciaForm() {
 
+    let installments = this.typeId == 1? this.expense?.installments: 1;
+
     if (this.isInclusao) {
       this.form = this.formBuilder.group({
         description: [this.expense?.description, [Validators.required]],
         dueDate: [this.expense?.dueDate, [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],
-        installments: [this.expense?.installments, [Validators.required]],
+        installments: [installments, [Validators.required]],
         expenseValue: [this.expense?.expenseValue, [Validators.required]],
         userid: [this.expense?.user?.id],
         categoryid: [this.expense?.category?.id],

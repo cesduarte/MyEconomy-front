@@ -25,6 +25,8 @@ export class ExpenseControlListComponent {
 
   bsModalRef?: BsModalRef
 
+  titleCollunButton: string = "";
+
   constructor(
     private readonly modalService: BsModalService,
     private readonly expenseDtService: ExpenseDetailService,
@@ -33,6 +35,7 @@ export class ExpenseControlListComponent {
   ) { }
 
   async ngOnInit(): Promise<void> {
+    this.titleCollunButton = this.type == 1?  "Pago?": "";
     this.getDefaultFilter();
     await this.loadExpenses();
 
@@ -75,6 +78,7 @@ export class ExpenseControlListComponent {
       initialState: {
         showFilterType: false,
         showFilterStatus: this.type == 1,
+        showFilterActive: false,
         filter: this.filter
       },
       class: 'mymodal-dialog-lg modal-dialog-centered'
@@ -96,7 +100,8 @@ export class ExpenseControlListComponent {
     const initialState: ModalOptions = {
       initialState: {
         isInclusao: true,
-        typeId: 2
+        typeId: 2,
+        title: "Lançar despesa variável"
       },
       class: 'mymodal-dialog-lg modal-dialog-centered'
     };
@@ -108,17 +113,17 @@ export class ExpenseControlListComponent {
       this.loadExpenses();
     })
   }
-  delete(expense: Expense) {
+  deleteExpense(expenseDt: ExpenseDetails) {
     Swal.fire({
       icon: 'warning',
       title: 'Tem certeza que deseja deletar?',
       showCancelButton: true,
       confirmButtonText: 'Sim',
-      denyButtonText: `Cancelar`,
+      cancelButtonText: `Cancelar`,
     }).then(async result => {
       if (result.isConfirmed) {
         try {
-          await this.expenseService.delete(expense.id)
+          await this.expenseService.delete(expenseDt.expense.id)
           await Swal.fire('Despesa deletada com sucesso!', '', 'success')
         }
         catch (error) {
@@ -129,5 +134,31 @@ export class ExpenseControlListComponent {
         }
       }
     })
+  }
+  updateExpense(expenseDt: ExpenseDetails) {
+    let msg = expenseDt.status == 2 ? "reabrir" : "pagar";
+    Swal.fire({
+      icon: 'warning',
+      title: 'Tem certeza que deseja '+ msg +' a despesa? ' + expenseDt.expense.description,
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: `Cancelar`,
+    }).then(async result => {
+      if (result.isConfirmed) {
+        try {
+          await this.expenseDtService.Pay(expenseDt.id, expenseDt.status)
+          await Swal.fire('Despesa alterada com sucesso!', '', 'success')
+        }
+        catch (error) {
+          console.error('enviaForm', error);
+        }
+        finally {
+          this.loadExpenses()
+        }
+      }
+    })
+  }
+  getIconExpenseFixed(status: number): string {
+    return status == 1 ? "pi pi-pencil" : "pi pi-trash"
   }
 }

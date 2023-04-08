@@ -9,16 +9,26 @@ export class ExpenseStatusComponent {
 
   @Input() status: any;
 
-  getDescription() : string {
-    if(this.status == 2){
-      return "Sim"
-    }
-     return "Não"
+  @Input() type: number = 1;
+
+  @Output() deleteExpenseEmiter = new EventEmitter();
+  @Output() updateExpenseEmiter = new EventEmitter();
+
+
+  getDescription(): string {
+    return this.status == 1 ? "Não" : "Sim";
   }
   getColor(): string {
-    if(this.status == 2){
-      return "success"
-    }
-     return "danger"
+    return "p-button-sm " + (this.status == 1 ? "p-button-warning" : "p-button-success");
+  }
+  getIcon(): string {
+    return this.status == 1 ? "pi pi-times-circle" : "pi pi-check-circle";
+  }
+
+  deleteExpense(){
+    this.deleteExpenseEmiter.emit();
+  }
+  updateExpense(){
+    this.updateExpenseEmiter.emit();
   }
 }

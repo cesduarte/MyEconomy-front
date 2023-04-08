@@ -32,6 +32,8 @@ export class ExpenseFiltersComponent {
 
   showFilterType:boolean = true;
 
+  showFilterActive:boolean = true;
+
   public onClose!: Subject<any>;
 
   constructor(

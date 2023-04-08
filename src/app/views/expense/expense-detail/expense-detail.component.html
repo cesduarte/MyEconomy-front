@@ -1,9 +1,6 @@
 
 <div class="modal-header my-header">
-  <h4 class="modal-title">Cadastro de despesas</h4>
-  <!-- <button type="button" class="btn-close close pull-right" aria-label="Close" style="background-color: white;">
-    <span aria-hidden="true" class="visually-hidden">&times;</span>
-  </button> -->
+  <h4 class="modal-title">{{title}}</h4>
   <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-help" (click)="bsModalRef.hide()"></button>
 </div>
 <div class="modal-body">
@@ -26,7 +23,7 @@
             <small id="username2-help" class="p-invalid">O campo data de vencimento obrigatório.</small>
           </div>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4" *ngIf="typeId == 1">
           <label class="form-label">Parcelas</label>
           <input type="text" class="form-control" formControlName ="installments" [ngClass]="cssValidator(f.installments)"/>
           <div *ngIf="f.installments.errors?.required" class="invalid-feedback">
